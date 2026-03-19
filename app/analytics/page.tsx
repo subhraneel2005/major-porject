@@ -1,6 +1,5 @@
 "use client"
 
-import Header from "@/components/header"
 import {
   BarChart,
   Bar,
@@ -58,8 +57,7 @@ const teamStrengthData = [
 
 export default function AnalyticsPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
@@ -134,8 +132,8 @@ export default function AnalyticsPage() {
             <CardContent>
               <ChartContainer
                 config={{
-                  india: { label: "Team A", color: "#b8ff00" },
-                  pakistan: { label: "Team B", color: "#a855f7" },
+                  india: { label: "Team A", color: "#ff6b6b" },
+                  pakistan: { label: "Team B", color: "#4ecdc4" },
                 }}
                 className="h-[300px]"
               >
@@ -169,8 +167,8 @@ export default function AnalyticsPage() {
             <CardContent>
               <ChartContainer
                 config={{
-                  india: { label: "India", color: "#b8ff00" },
-                  pakistan: { label: "Pakistan", color: "#a855f7" },
+                  india: { label: "India", color: "#ff6b6b" },
+                  pakistan: { label: "Pakistan", color: "#4ecdc4" },
                 }}
                 className="h-[300px]"
               >

@@ -1,6 +1,5 @@
 "use client"
 
-import Header from "@/components/header"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { BarChart3, TrendingUp, Zap, Users, Shield, Lightbulb, CheckCircle2, Rocket } from "lucide-react"
@@ -55,32 +54,30 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-secondary rounded-lg">
-              <Rocket className="w-8 h-8" />
-            </div>
-            <h1 className="text-5xl sm:text-6xl font-bold">About CrickPredict Pro</h1>
+    <div className="min-h-screen">
+      <section className="bg-secondary border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex items-center gap-3 mb-4">
+            <Rocket className="w-8 h-8" />
+            <h1 className="text-4xl sm:text-5xl font-bold">About CrickPredict Pro</h1>
           </div>
-          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
             CrickPredict Pro is a cutting-edge cricket match prediction platform that combines advanced AI algorithms
             with comprehensive sports analytics. We help cricket enthusiasts and analysts make informed predictions with
             data-driven insights.
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 className="text-2xl font-bold mb-6">Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
               <Card key={index}>
                 <CardHeader>
-                  <div className="mb-4 p-3 bg-secondary rounded-lg w-fit">
-                    <Icon className="w-7 h-7" />
-                  </div>
+                  <Icon className="w-6 h-6 mb-2" />
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -93,16 +90,13 @@ export default function AboutPage() {
           })}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           <Card>
-            <CardHeader className="pb-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Separator orientation="vertical" className="w-1 h-10" />
-                <CardTitle className="text-2xl">Our Mission</CardTitle>
-              </div>
+            <CardHeader>
+              <CardTitle className="text-xl">Our Mission</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed text-lg">
+              <p className="text-muted-foreground leading-relaxed">
                 Our mission is to revolutionize cricket match predictions by leveraging the power of artificial
                 intelligence and data analytics. We believe in democratizing cricket intelligence, making accurate
                 predictions accessible to everyone from casual fans to professional analysts. Through our platform, we
@@ -112,19 +106,16 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-secondary">
-            <CardHeader className="pb-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Separator orientation="vertical" className="w-1 h-10" />
-                <CardTitle className="text-2xl">Why Choose Us?</CardTitle>
-              </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl">Why Choose Us?</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {benefits.map((benefit, index) => (
-                  <li key={index} className="flex gap-3 items-start">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground text-sm sm:text-base">{benefit}</span>
+                  <li key={index} className="flex gap-2 items-start">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5 text-primary" />
+                    <span className="text-muted-foreground text-sm">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -133,34 +124,26 @@ export default function AboutPage() {
         </div>
 
         <Card>
-          <CardHeader className="pb-6">
-            <div className="flex items-center gap-3">
-              <Separator orientation="vertical" className="w-1 h-10" />
-              <CardTitle className="text-2xl">Platform Statistics</CardTitle>
-            </div>
+          <CardHeader>
+            <CardTitle className="text-xl">Platform Statistics</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black mb-2">2,847+</div>
-                <p className="text-sm text-muted-foreground">Matches Analyzed</p>
-              </div>
-              <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black mb-2">24</div>
-                <p className="text-sm text-muted-foreground">Teams Tracked</p>
-              </div>
-              <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black mb-2">68.5%</div>
-                <p className="text-sm text-muted-foreground">Accuracy Rate</p>
-              </div>
-              <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black mb-2">100%</div>
-                <p className="text-sm text-muted-foreground">Verified Data</p>
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { value: "2,847+", label: "Matches Analyzed" },
+                { value: "24", label: "Teams Tracked" },
+                { value: "68.5%", label: "Accuracy Rate" },
+                { value: "100%", label: "Verified Data" },
+              ].map((stat, index) => (
+                <div key={index} className="text-center p-4 bg-muted rounded-lg">
+                  <div className="text-2xl sm:text-3xl font-bold mb-1">{stat.value}</div>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>
-      </div>
+      </section>
     </div>
   )
 }

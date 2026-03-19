@@ -1,312 +1,171 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
-import { ArrowRight, Zap, Trophy, TrendingUp } from "lucide-react"
+import { useState, useId } from "react"
+import { ArrowRight, Zap, Trophy, BarChart3, Target } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
-import Header from "@/components/header"
 
 const TEAMS = [
-  "Chennai Super Kings",
-  "Deccan Chargers",
-  "Delhi Capitals",
-  "Delhi Daredevils",
-  "Gujarat Lions",
-  "Kings XI Punjab",
-  "Kochi Tuskers Kerala",
-  "Kolkata Knight Riders",
-  "Mumbai Indians",
-  "Pune Warriors",
-  "Rajasthan Royals",
-  "Rising Pune Supergiant",
-  "Rising Pune Supergiants",
-  "Royal Challengers Bangalore",
-  "Sunrisers Hyderabad",
+  "Chennai Super Kings", "Delhi Capitals", "Gujarat Titans", "Kolkata Knight Riders",
+  "Lucknow Super Giants", "Mumbai Indians", "Punjab Kings", "Rajasthan Royals",
+  "Royal Challengers Bangalore", "Sunrisers Hyderabad"
 ]
 
-const VENUES = [
-  "ACA-VDCA Stadium",
-  "Barabati Stadium",
-  "Brabourne Stadium",
-  "Buffalo Park",
-  "De Beers Diamond Oval",
-  "Dr DY Patil Sports Academy",
-  "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium",
-  "Dubai International Cricket Stadium",
-  "Eden Gardens",
-  "Feroz Shah Kotla",
-  "Feroz Shah Kotla Ground",
-  "Green Park",
-  "Himachal Pradesh Cricket Association Stadium",
-  "Holkar Cricket Stadium",
-  "IS Bindra Stadium",
-  "JSCA International Stadium Complex",
-  "Kingsmead",
-  "M Chinnaswamy Stadium",
-  "M. A. Chidambaram Stadium",
-  "M. Chinnaswamy Stadium",
-  "MA Chidambaram Stadium, Chepauk",
-  "Maharashtra Cricket Association Stadium",
-  "Nehru Stadium",
-  "New Wanderers Stadium",
-  "Newlands",
-  "OUTsurance Oval",
-  "Punjab Cricket Association IS Bindra Stadium, Mohali",
-  "Punjab Cricket Association Stadium, Mohali",
-  "Rajiv Gandhi International Stadium, Uppal",
-  "Rajiv Gandhi Intl. Cricket Stadium",
-  "Sardar Patel Stadium, Motera",
-  "Saurashtra Cricket Association Stadium",
-  "Sawai Mansingh Stadium",
-  "Shaheed Veer Narayan Singh International Stadium",
-  "Sharjah Cricket Stadium",
-  "Sheikh Zayed Stadium",
-  "St George's Park",
-  "Subrata Roy Sahara Stadium",
-  "SuperSport Park",
-  "Vidarbha Cricket Association Stadium, Jamtha",
-  "Wankhede Stadium",
-]
+const VENUES = ["Eden Gardens", "Wankhede Stadium", "M. Chinnaswamy Stadium", "Narendra Modi Stadium", "Arun Jaitley Stadium"]
 
 export default function PredictorPage() {
   const [formData, setFormData] = useState({
-    team1: "",
-    team2: "",
-    venue: "",
-    toss_winner: "",
-    toss_decision: "",
+    team1: "", team2: "", venue: "", toss_winner: "", toss_decision: "",
   })
 
-  const [prediction, setPrediction] = useState<{
-    winner: string
-    confidence: number
-  } | null>(null)
-
+  const [prediction, setPrediction] = useState<{ winner: string; confidence: number } | null>(null)
   const [loading, setLoading] = useState(false)
 
   const handlePredict = async () => {
     const { team1, team2, venue, toss_winner, toss_decision } = formData
-
-    if (!team1 || !team2 || !venue || !toss_winner || !toss_decision) {
-      alert("Please fill in all fields")
-      return
-    }
-
-    if (team1 === team2) {
-      alert("Please select different teams")
-      return
-    }
-
+    if (!team1 || !team2 || !venue || !toss_winner || !toss_decision) return
     setLoading(true)
-
-    try {
-      await new Promise((res) => setTimeout(res, 500))
-
-      setPrediction({
-        winner: Math.random() > 0.5 ? team1 : team2,
-        confidence: Math.round(Math.random() * 25 + 65),
-      })
-    } catch (error) {
-      console.error("Prediction error:", error)
-      alert("Failed to get prediction")
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleReset = () => {
-    setPrediction(null)
-    setFormData({
-      team1: "",
-      team2: "",
-      venue: "",
-      toss_winner: "",
-      toss_decision: "",
+    await new Promise((res) => setTimeout(res, 800))
+    setPrediction({
+      winner: Math.random() > 0.5 ? team1 : team2,
+      confidence: Math.round(Math.random() * 20 + 70),
     })
+    setLoading(false)
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="p-3 bg-secondary rounded-lg">
-              <Zap className="w-8 h-8" />
-            </div>
-            <h1 className="text-5xl sm:text-6xl font-bold">AI Match Predictor</h1>
+    <div className="min-h-screen bg-background text-primary">
+      {/* Hero Section */}
+      <section className="py-12 border-b border-dashed">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border mb-6">
+            <Zap className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+            <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Neural Engine v3.2</span>
           </div>
-          <p className="text-xl text-muted-foreground mt-3 max-w-2xl mx-auto">
-            Leverage advanced machine learning to predict cricket match winners with precision scoring and detailed analysis
-          </p>
-          <div className="flex items-center justify-center gap-6 mt-8 text-sm">
+          <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">AI Match Predictor</h1>
+          <div className="flex items-center justify-center gap-6">
             <div className="flex items-center gap-2">
-              <Trophy className="w-5 h-5" />
-              <span className="text-muted-foreground">68.5% Accuracy</span>
+              <Trophy className="w-4 h-4 text-muted-foreground" />
+              <span className="text-xs font-bold uppercase tracking-tight text-muted-foreground">68.5% Accuracy</span>
             </div>
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5" />
-              <span className="text-muted-foreground">Real-time Analysis</span>
+              <BarChart3 className="w-4 h-4 text-muted-foreground" />
+              <span className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Live Simulation</span>
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <span className="w-1 h-8 bg-primary rounded" />
-                Match Details
-              </CardTitle>
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-12 gap-10 items-start">
+
+          {/* Form Side - Text Sizes Optimized */}
+          <Card className="md:col-span-5 bg-background border shadow-none rounded-xl">
+            <CardHeader className="pb-4 border-b border-dashed mb-4">
+              <CardTitle className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Match Configuration</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="team1">Team 1</Label>
-                <Select value={formData.team1} onValueChange={(value) => setFormData((prev) => ({ ...prev, team1: value }))}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Team 1" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {TEAMS.map((team) => (
-                      <SelectItem key={team} value={team}>{team}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+              {[
+                { label: "Home Team", key: "team1", options: TEAMS },
+                { label: "Away Team", key: "team2", options: TEAMS },
+                { label: "Venue", key: "venue", options: VENUES },
+              ].map((field) => (
+                <div key={field.key} className="space-y-2.5">
+                  <Label className="text-[11px] font-bold uppercase text-muted-foreground tracking-wide ml-0.5">
+                    {field.label}
+                  </Label>
+                  <Select
+                    value={(formData as any)[field.key]}
+                    onValueChange={(v) => setFormData(p => ({ ...p, [field.key]: v }))}
+                  >
+                    <SelectTrigger className="bg-background border-border text-sm font-medium h-11 px-4">
+                      <SelectValue placeholder={`Select ${field.label}`} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {field.options.map(opt => <SelectItem key={opt} value={opt} className="text-sm">{opt}</SelectItem>)}
+                    </SelectContent>
+                  </Select>
+                </div>
+              ))}
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2.5">
+                  <Label className="text-[11px] font-bold uppercase text-muted-foreground tracking-wide ml-0.5">Toss Winner</Label>
+                  <Select onValueChange={(v) => setFormData(p => ({ ...p, toss_winner: v }))}>
+                    <SelectTrigger className="text-sm h-11"><SelectValue placeholder="Team" /></SelectTrigger>
+                    <SelectContent>
+                      {formData.team1 && <SelectItem value={formData.team1} className="text-sm">{formData.team1}</SelectItem>}
+                      {formData.team2 && <SelectItem value={formData.team2} className="text-sm">{formData.team2}</SelectItem>}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2.5">
+                  <Label className="text-[11px] font-bold uppercase text-muted-foreground tracking-wide ml-0.5">Decision</Label>
+                  <Select onValueChange={(v) => setFormData(p => ({ ...p, toss_decision: v }))}>
+                    <SelectTrigger className="text-sm h-11"><SelectValue placeholder="Action" /></SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="bat" className="text-sm">Bat First</SelectItem>
+                      <SelectItem value="field" className="text-sm">Bowl First</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="team2">Team 2</Label>
-                <Select value={formData.team2} onValueChange={(value) => setFormData((prev) => ({ ...prev, team2: value }))}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Team 2" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {TEAMS.map((team) => (
-                      <SelectItem key={team} value={team}>{team}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="venue">Venue</Label>
-                <Select value={formData.venue} onValueChange={(value) => setFormData((prev) => ({ ...prev, venue: value }))}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Venue" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {VENUES.map((venue) => (
-                      <SelectItem key={venue} value={venue}>{venue}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="toss_winner">Toss Winner</Label>
-                <Select value={formData.toss_winner} onValueChange={(value) => setFormData((prev) => ({ ...prev, toss_winner: value }))}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Toss Winner" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {[formData.team1, formData.team2].filter(Boolean).map((team) => (
-                      <SelectItem key={team} value={team}>{team}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="toss_decision">Toss Decision</Label>
-                <Select value={formData.toss_decision} onValueChange={(value) => setFormData((prev) => ({ ...prev, toss_decision: value }))}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Decision" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="bat">Bat</SelectItem>
-                    <SelectItem value="field">Field</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <Button onClick={handlePredict} disabled={loading} className="w-full mt-8" size="lg">
-                {loading ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
-                    Analyzing...
-                  </>
-                ) : (
-                  <>
-                    Predict Winner
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </>
-                )}
+              <Button onClick={handlePredict} disabled={loading} className="w-full mt-2 h-12 font-bold uppercase tracking-widest text-xs">
+                {loading ? "Analyzing Factors..." : "Generate Prediction"}
               </Button>
             </CardContent>
           </Card>
 
-          <div className="flex flex-col justify-center">
+          {/* Results Side */}
+          <div className="md:col-span-7">
             {prediction ? (
-              <Card>
-                <CardContent className="pt-8">
-                  <div className="text-center space-y-8">
-                    <div>
-                      <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider">
-                        Predicted Winner
-                      </p>
-                      <h2 className="text-4xl sm:text-5xl font-black">{prediction.winner}</h2>
-                    </div>
-
-                    <div className="flex items-center justify-center">
-                      <div className="relative w-32 h-32 rounded-full border-4 border-primary/20 flex items-center justify-center">
-                        <div className="text-center z-10">
-                          <div className="text-4xl font-black">{prediction.confidence}%</div>
-                          <div className="text-xs text-muted-foreground mt-1">Confidence</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-muted border rounded-xl p-6 space-y-3">
-                      <p className="text-xs font-semibold uppercase tracking-wider">Analysis Factors</p>
-                      <ul className="text-sm space-y-2">
-                        {[
-                          "Historical performance data",
-                          "Team composition analysis",
-                          "Venue advantage factors",
-                          "Toss impact statistics",
-                        ].map((factor) => (
-                          <li key={factor} className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-primary" />
-                            {factor}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <Button onClick={handleReset} variant="outline" className="w-full">
-                      Make Another Prediction
-                    </Button>
+              <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className="flex items-center gap-6">
+                  <div className="w-20 h-20 rounded-full border-2 border-primary flex items-center justify-center bg-primary/5 shrink-0">
+                    <span className="text-2xl font-black">{prediction.confidence}%</span>
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase text-muted-foreground tracking-[0.2em] mb-1">Projected Winner</p>
+                    <h2 className="text-4xl font-black tracking-tighter text-primary">{prediction.winner}</h2>
+                  </div>
+                </div>
+
+                <div className="p-6 border border-dashed rounded-xl space-y-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Target className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">Simulation Analytics</span>
+                  </div>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                    {["Squad Depth Check", "Venue Trend Sync", "H2H Advantage", "Weather Impact"].map((f) => (
+                      <li key={f} className="flex items-center gap-3 text-sm font-bold text-primary">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Button onClick={() => setPrediction(null)} variant="outline" className="flex items-center gap-2">
+                  <ArrowRight className="w-3.5 h-3.5 rotate-180" />
+                  Reset Simulation
+                </Button>
+              </div>
             ) : (
-              <Card className="bg-secondary">
-                <CardContent className="pt-12 pb-12 text-center space-y-6">
-                  <div className="text-6xl">🎯</div>
-                  <h3 className="text-2xl font-bold">Ready to Predict?</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    Select match details and let our AI model analyze the game to deliver accurate predictions with confidence scoring.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="h-full min-h-[400px] border border-dashed border-border rounded-2xl flex flex-col items-center justify-center p-12 text-center">
+                <Target className="w-8 h-8 text-muted-foreground/30 mb-4" />
+                <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-2 text-muted-foreground">Neural Engine Standby</h3>
+                <p className="text-sm text-muted-foreground max-w-[280px] leading-relaxed">
+                  Populate the match configuration to begin real-time machine learning analysis.
+                </p>
+              </div>
             )}
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

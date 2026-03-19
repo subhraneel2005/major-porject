@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { GeistSans } from "geist/font/sans"
 import "./globals.css"
-import { cn } from "@/lib/utils";
+import Header from "@/components/header"
 
 export const metadata: Metadata = {
   title: "CrickPredict Pro - Cricket Match Predictions",
@@ -36,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${GeistSans.className} tracking-tighter antialiased`}>
+        <Header />
         {children}
         <Analytics />
       </body>
