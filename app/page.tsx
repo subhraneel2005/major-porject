@@ -19,10 +19,10 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
 
-      <div className="relative bg-gradient-to-b from-primary to-background py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-secondary py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Today's Matches</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Today's Matches</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Explore upcoming cricket matches and get AI-powered predictions backed by advanced analytics
             </p>
@@ -63,7 +63,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="bg-primary/50 py-12 px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="bg-muted py-12 px-4 sm:px-6 lg:px-8 mt-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -72,7 +72,7 @@ export default function Home() {
               { label: "Teams Analyzed", value: "1,240+" },
             ].map((stat, idx) => (
               <div key={idx} className="text-center">
-                <div className="text-3xl font-bold text-accent mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold mb-2">{stat.value}</div>
                 <div className="text-muted-foreground">{stat.label}</div>
               </div>
             ))}

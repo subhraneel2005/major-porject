@@ -63,10 +63,10 @@ export default function AnalyticsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-accent/10 rounded-lg">
-              <BarChart3 className="w-8 h-8 text-accent" />
+            <div className="p-3 bg-secondary rounded-lg">
+              <BarChart3 className="w-8 h-8" />
             </div>
-            <h1 className="text-5xl font-bold text-foreground">Analytics Dashboard</h1>
+            <h1 className="text-5xl font-bold">Analytics Dashboard</h1>
           </div>
           <p className="text-lg text-muted-foreground">Real-time cricket statistics and predictive insights</p>
         </div>
@@ -75,12 +75,12 @@ export default function AnalyticsPage() {
           <Card>
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-accent text-sm font-semibold">Prediction Accuracy</CardTitle>
-                <Target className="w-5 h-5 text-accent/60" />
+                <CardTitle className="text-sm font-semibold">Prediction Accuracy</CardTitle>
+                <Target className="w-5 h-5 text-muted-foreground" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black text-accent mb-2">68.5%</div>
+              <div className="text-4xl font-black mb-2">68.5%</div>
               <p className="text-xs text-muted-foreground">Based on last 30 matches</p>
             </CardContent>
           </Card>
@@ -88,12 +88,12 @@ export default function AnalyticsPage() {
           <Card>
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-accent text-sm font-semibold">Matches Analyzed</CardTitle>
-                <BarChart3 className="w-5 h-5 text-accent/60" />
+                <CardTitle className="text-sm font-semibold">Matches Analyzed</CardTitle>
+                <BarChart3 className="w-5 h-5 text-muted-foreground" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black text-accent mb-2">2,847</div>
+              <div className="text-4xl font-black mb-2">2,847</div>
               <p className="text-xs text-muted-foreground">All time across formats</p>
             </CardContent>
           </Card>
@@ -101,12 +101,12 @@ export default function AnalyticsPage() {
           <Card>
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-accent text-sm font-semibold">Teams Tracked</CardTitle>
-                <Users className="w-5 h-5 text-accent/60" />
+                <CardTitle className="text-sm font-semibold">Teams Tracked</CardTitle>
+                <Users className="w-5 h-5 text-muted-foreground" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black text-accent mb-2">24</div>
+              <div className="text-4xl font-black mb-2">24</div>
               <p className="text-xs text-muted-foreground">Active international teams</p>
             </CardContent>
           </Card>
@@ -114,12 +114,12 @@ export default function AnalyticsPage() {
           <Card>
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-accent text-sm font-semibold">Win Rate</CardTitle>
-                <TrendingUp className="w-5 h-5 text-accent/60" />
+                <CardTitle className="text-sm font-semibold">Win Rate</CardTitle>
+                <TrendingUp className="w-5 h-5 text-muted-foreground" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black text-accent mb-2">72.3%</div>
+              <div className="text-4xl font-black mb-2">72.3%</div>
               <p className="text-xs text-muted-foreground">Average across teams</p>
             </CardContent>
           </Card>
@@ -128,7 +128,7 @@ export default function AnalyticsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           <Card>
             <CardHeader>
-              <CardTitle className="text-accent text-xl">Win Probability Distribution</CardTitle>
+              <CardTitle className="text-xl">Win Probability Distribution</CardTitle>
               <CardDescription>Last 100 matches analysis</CardDescription>
             </CardHeader>
             <CardContent>
@@ -163,7 +163,7 @@ export default function AnalyticsPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-accent text-xl">Team Strengths Comparison</CardTitle>
+              <CardTitle className="text-xl">Team Strengths Comparison</CardTitle>
               <CardDescription>Radar analysis across metrics</CardDescription>
             </CardHeader>
             <CardContent>
@@ -192,7 +192,7 @@ export default function AnalyticsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           <Card>
             <CardHeader>
-              <CardTitle className="text-accent text-xl">Top Players Performance</CardTitle>
+              <CardTitle className="text-xl">Top Players Performance</CardTitle>
               <CardDescription>Average score comparison</CardDescription>
             </CardHeader>
             <CardContent>
@@ -217,7 +217,7 @@ export default function AnalyticsPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-accent text-xl">Head-to-Head Historical Trend</CardTitle>
+              <CardTitle className="text-xl">Head-to-Head Historical Trend</CardTitle>
               <CardDescription>Win rate over last 7 series</CardDescription>
             </CardHeader>
             <CardContent>

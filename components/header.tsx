@@ -27,8 +27,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 group">
-            <Zap className="w-8 h-8 text-accent" />
-            <span className="text-xl sm:text-2xl font-bold text-foreground">CrickPredict Pro</span>
+            <Zap className="w-8 h-8" />
+            <span className="text-xl sm:text-2xl font-bold">CrickPredict Pro</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-2">
@@ -38,10 +38,7 @@ export default function Header() {
                 href={item.href}
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
-                  "relative",
-                  isActive(item.href)
-                    ? "text-accent bg-accent/10"
-                    : "text-muted-foreground hover:text-accent"
+                  isActive(item.href) ? "bg-accent/10" : ""
                 )}
               >
                 {item.label}

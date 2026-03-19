@@ -19,10 +19,10 @@ export default function MatchCard({ match }: any) {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 flex-1">
-              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">
+              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold">
                 {match.teamA.name.charAt(0)}
               </div>
-              <span className="font-semibold text-foreground group-hover:text-accent transition-colors">
+              <span className="font-semibold group-hover:text-primary transition-colors">
                 {match.teamA.name}
               </span>
             </div>
@@ -32,10 +32,10 @@ export default function MatchCard({ match }: any) {
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 flex-1">
-              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">
+              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold">
                 {match.teamB.name.charAt(0)}
               </div>
-              <span className="font-semibold text-foreground group-hover:text-accent transition-colors">
+              <span className="font-semibold group-hover:text-primary transition-colors">
                 {match.teamB.name}
               </span>
             </div>
@@ -43,7 +43,7 @@ export default function MatchCard({ match }: any) {
         </div>
 
         <div className="flex items-center gap-2 text-muted-foreground text-sm pt-2 border-t border-border">
-          <MapPin className="w-4 h-4 text-accent" />
+          <MapPin className="w-4 h-4" />
           <span className="truncate">{match.stadium.name}</span>
         </div>
       </CardContent>

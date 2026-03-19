@@ -21,7 +21,7 @@ export default function MatchDetailsPage({ params }: { params: Promise<{ id: str
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Match not found</h1>
+          <h1 className="text-2xl font-bold mb-4">Match not found</h1>
           <Link href="/">
             <Button>Back to Matches</Button>
           </Link>
@@ -36,16 +36,16 @@ export default function MatchDetailsPage({ params }: { params: Promise<{ id: str
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Link href={`/match/${match.id}`}>
-          <Button variant="ghost" className="text-accent hover:bg-accent/10">
+          <Button variant="ghost">
             <ChevronLeft className="w-4 h-4 mr-2" />
             Back to Match Details
           </Button>
         </Link>
       </div>
 
-      <div className="bg-gradient-to-b from-primary/80 to-background py-8 px-4 sm:px-6 lg:px-8 border-b border-border">
+      <div className="bg-secondary py-8 px-4 sm:px-6 lg:px-8 border-b border-border">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2">Match Prediction & Analytics</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">Match Prediction & Analytics</h1>
           <p className="text-muted-foreground">Powered by AI-driven statistical analysis</p>
         </div>
       </div>

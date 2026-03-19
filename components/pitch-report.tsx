@@ -14,9 +14,9 @@ export default function PitchReport({ stadium }: any) {
 
   return (
     <Card>
-      <CardHeader className="bg-primary/50">
+      <CardHeader className="bg-muted">
         <CardTitle className="flex items-center gap-2">
-          <Cloud className="w-5 h-5 text-accent" />
+          <Cloud className="w-5 h-5" />
           Pitch & Weather Report
         </CardTitle>
       </CardHeader>
@@ -45,12 +45,12 @@ export default function PitchReport({ stadium }: any) {
               value: report.conditions,
             },
           ].map((item, idx) => (
-            <div key={idx} className="p-4 bg-primary/30 rounded-lg border border-border">
-              <div className="flex items-center gap-2 text-accent mb-2">
+            <div key={idx} className="p-4 bg-muted rounded-lg border border-border">
+              <div className="flex items-center gap-2 mb-2">
                 {item.icon}
                 <span className="text-sm font-semibold">{item.label}</span>
               </div>
-              <p className="text-lg font-semibold text-foreground">{item.value}</p>
+              <p className="text-lg font-semibold">{item.value}</p>
             </div>
           ))}
         </div>
@@ -58,11 +58,11 @@ export default function PitchReport({ stadium }: any) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 pt-6 border-t border-border">
           <div>
             <p className="text-sm text-muted-foreground mb-2">Pitch Favours</p>
-            <p className="text-lg font-semibold text-accent">{report.pitchFavours}</p>
+            <p className="text-lg font-semibold">{report.pitchFavours}</p>
           </div>
           <div>
             <p className="text-sm text-muted-foreground mb-2">Expected Score Range</p>
-            <p className="text-lg font-semibold text-accent">{report.prediction}</p>
+            <p className="text-lg font-semibold">{report.prediction}</p>
           </div>
         </div>
       </CardContent>

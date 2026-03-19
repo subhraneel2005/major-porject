@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
 import Header from "@/components/header"
 
 const TEAMS = [
@@ -136,21 +135,21 @@ export default function PredictorPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="p-3 bg-accent/10 rounded-lg">
-              <Zap className="w-8 h-8 text-accent" />
+            <div className="p-3 bg-secondary rounded-lg">
+              <Zap className="w-8 h-8" />
             </div>
-            <h1 className="text-5xl sm:text-6xl font-bold text-foreground">AI Match Predictor</h1>
+            <h1 className="text-5xl sm:text-6xl font-bold">AI Match Predictor</h1>
           </div>
           <p className="text-xl text-muted-foreground mt-3 max-w-2xl mx-auto">
             Leverage advanced machine learning to predict cricket match winners with precision scoring and detailed analysis
           </p>
           <div className="flex items-center justify-center gap-6 mt-8 text-sm">
             <div className="flex items-center gap-2">
-              <Trophy className="w-5 h-5 text-accent" />
+              <Trophy className="w-5 h-5" />
               <span className="text-muted-foreground">68.5% Accuracy</span>
             </div>
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-accent" />
+              <TrendingUp className="w-5 h-5" />
               <span className="text-muted-foreground">Real-time Analysis</span>
             </div>
           </div>
@@ -160,7 +159,7 @@ export default function PredictorPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <span className="w-1 h-8 bg-accent rounded" />
+                <span className="w-1 h-8 bg-primary rounded" />
                 Match Details
               </CardTitle>
             </CardHeader>
@@ -252,29 +251,28 @@ export default function PredictorPage() {
 
           <div className="flex flex-col justify-center">
             {prediction ? (
-              <Card className="bg-gradient-to-br from-accent/15 via-accent/5 to-primary border-accent">
+              <Card>
                 <CardContent className="pt-8">
                   <div className="text-center space-y-8">
                     <div>
                       <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider">
                         Predicted Winner
                       </p>
-                      <h2 className="text-4xl sm:text-5xl font-black text-accent">{prediction.winner}</h2>
+                      <h2 className="text-4xl sm:text-5xl font-black">{prediction.winner}</h2>
                     </div>
 
                     <div className="flex items-center justify-center">
-                      <div className="relative w-32 h-32 rounded-full border-4 border-accent/20 flex items-center justify-center">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent to-accent/50 opacity-10" />
+                      <div className="relative w-32 h-32 rounded-full border-4 border-primary/20 flex items-center justify-center">
                         <div className="text-center z-10">
-                          <div className="text-4xl font-black text-accent">{prediction.confidence}%</div>
+                          <div className="text-4xl font-black">{prediction.confidence}%</div>
                           <div className="text-xs text-muted-foreground mt-1">Confidence</div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="bg-primary/50 border border-accent/30 rounded-xl p-6 space-y-3">
-                      <p className="text-xs font-semibold text-accent uppercase tracking-wider">Analysis Factors</p>
-                      <ul className="text-sm text-foreground space-y-2">
+                    <div className="bg-muted border rounded-xl p-6 space-y-3">
+                      <p className="text-xs font-semibold uppercase tracking-wider">Analysis Factors</p>
+                      <ul className="text-sm space-y-2">
                         {[
                           "Historical performance data",
                           "Team composition analysis",
@@ -282,7 +280,7 @@ export default function PredictorPage() {
                           "Toss impact statistics",
                         ].map((factor) => (
                           <li key={factor} className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-accent" />
+                            <span className="w-2 h-2 rounded-full bg-primary" />
                             {factor}
                           </li>
                         ))}
@@ -296,10 +294,10 @@ export default function PredictorPage() {
                 </CardContent>
               </Card>
             ) : (
-              <Card className="bg-gradient-to-br from-accent/10 to-primary border-accent/30">
+              <Card className="bg-secondary">
                 <CardContent className="pt-12 pb-12 text-center space-y-6">
                   <div className="text-6xl">🎯</div>
-                  <h3 className="text-2xl font-bold text-foreground">Ready to Predict?</h3>
+                  <h3 className="text-2xl font-bold">Ready to Predict?</h3>
                   <p className="text-muted-foreground text-lg leading-relaxed">
                     Select match details and let our AI model analyze the game to deliver accurate predictions with confidence scoring.
                   </p>

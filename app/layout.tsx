@@ -3,10 +3,7 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { GeistSans } from "geist/font/sans"
 import "./globals.css"
-import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "CrickPredict Pro - Cricket Match Predictions",
@@ -37,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
+    <html lang="en" className="dark">
       <body className={`${GeistSans.className} tracking-tighter antialiased`}>
         {children}
         <Analytics />

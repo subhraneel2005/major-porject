@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "shadcn": {
+      "source": "vercel-labs/vercel-plugin",
+      "sourceType": "github",
+      "computedHash": "3d7246c8646f37167701c5ac97d1410094a01e5fdd696d2901b7ca90fe99fad8"
+    }
+  }
+}

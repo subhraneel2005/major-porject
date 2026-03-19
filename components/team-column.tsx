@@ -5,15 +5,15 @@ import Link from "next/link"
 export default function TeamColumn({ team, side }: any) {
   return (
     <Card>
-      <CardHeader className="bg-primary/50">
+      <CardHeader className="bg-muted">
         <div className="flex items-center gap-3">
-          <Avatar className="w-16 h-16 bg-accent/20">
-            <AvatarFallback className="bg-accent/20 text-accent text-3xl font-bold">
+          <Avatar className="w-16 h-16 bg-secondary">
+            <AvatarFallback className="bg-secondary text-xl font-bold">
               {team.name.charAt(0)}
             </AvatarFallback>
           </Avatar>
           <div>
-            <CardTitle className="text-2xl text-foreground">{team.name}</CardTitle>
+            <CardTitle className="text-2xl">{team.name}</CardTitle>
             <p className="text-muted-foreground text-sm mt-1">
               {team.stats.wins}W • {team.stats.losses}L • Win Rate: {team.stats.winRate}%
             </p>
@@ -30,26 +30,26 @@ export default function TeamColumn({ team, side }: any) {
             { label: "Key Players", value: team.stats.keyPlayersCount },
           ].map((stat, idx) => (
             <div key={idx}>
-              <div className="text-2xl font-bold text-accent">{stat.value}</div>
+              <div className="text-2xl font-bold">{stat.value}</div>
               <div className="text-xs text-muted-foreground">{stat.label}</div>
             </div>
           ))}
         </div>
 
         <div>
-          <h3 className="font-semibold text-foreground mb-4">Squad</h3>
+          <h3 className="font-semibold mb-4">Squad</h3>
           <div className="grid grid-cols-3 gap-4">
             {team.players.map((player: any, idx: number) => (
               <div key={idx} className="text-center">
                 <Link href="/Eachply">
-                  <Avatar className="w-12 h-12 mx-auto mb-2 bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/30">
-                    <AvatarFallback className="bg-transparent text-accent text-lg font-bold">
+                  <Avatar className="w-12 h-12 mx-auto mb-2 bg-secondary border">
+                    <AvatarFallback className="bg-secondary text-lg font-bold">
                       {player.name.split(" ")[0].charAt(0)}
                       {player.name.split(" ")[1]?.charAt(0) || ""}
                     </AvatarFallback>
                   </Avatar>
                 </Link>
-                <p className="text-xs font-medium text-foreground truncate">{player.name}</p>
+                <p className="text-xs font-medium truncate">{player.name}</p>
                 <p className="text-xs text-muted-foreground mt-1">{player.role}</p>
               </div>
             ))}

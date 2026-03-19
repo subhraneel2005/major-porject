@@ -60,10 +60,10 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-accent/10 rounded-lg">
-              <Rocket className="w-8 h-8 text-accent" />
+            <div className="p-3 bg-secondary rounded-lg">
+              <Rocket className="w-8 h-8" />
             </div>
-            <h1 className="text-5xl sm:text-6xl font-bold text-foreground">About CrickPredict Pro</h1>
+            <h1 className="text-5xl sm:text-6xl font-bold">About CrickPredict Pro</h1>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
             CrickPredict Pro is a cutting-edge cricket match prediction platform that combines advanced AI algorithms
@@ -78,13 +78,13 @@ export default function AboutPage() {
             return (
               <Card key={index}>
                 <CardHeader>
-                  <div className="mb-4 p-3 bg-accent/10 rounded-lg w-fit">
-                    <Icon className="w-7 h-7 text-accent" />
+                  <div className="mb-4 p-3 bg-secondary rounded-lg w-fit">
+                    <Icon className="w-7 h-7" />
                   </div>
-                  <CardTitle className="text-accent text-lg">{feature.title}</CardTitle>
+                  <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
+                  <CardDescription className="leading-relaxed">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
@@ -97,8 +97,8 @@ export default function AboutPage() {
           <Card>
             <CardHeader className="pb-6">
               <div className="flex items-center gap-3 mb-2">
-                <Separator orientation="vertical" className="w-1 h-10 bg-accent" />
-                <CardTitle className="text-accent text-2xl">Our Mission</CardTitle>
+                <Separator orientation="vertical" className="w-1 h-10" />
+                <CardTitle className="text-2xl">Our Mission</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
@@ -112,18 +112,18 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-accent/10 to-primary border-accent/30">
+          <Card className="bg-secondary">
             <CardHeader className="pb-6">
               <div className="flex items-center gap-3 mb-2">
-                <Separator orientation="vertical" className="w-1 h-10 bg-accent" />
-                <CardTitle className="text-accent text-2xl">Why Choose Us?</CardTitle>
+                <Separator orientation="vertical" className="w-1 h-10" />
+                <CardTitle className="text-2xl">Why Choose Us?</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex gap-3 items-start">
-                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground text-sm sm:text-base">{benefit}</span>
                   </li>
                 ))}
@@ -135,26 +135,26 @@ export default function AboutPage() {
         <Card>
           <CardHeader className="pb-6">
             <div className="flex items-center gap-3">
-              <Separator orientation="vertical" className="w-1 h-10 bg-accent" />
-              <CardTitle className="text-accent text-2xl">Platform Statistics</CardTitle>
+              <Separator orientation="vertical" className="w-1 h-10" />
+              <CardTitle className="text-2xl">Platform Statistics</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center p-4 bg-primary/50 rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black text-accent mb-2">2,847+</div>
+              <div className="text-center p-4 bg-muted rounded-lg">
+                <div className="text-3xl sm:text-4xl font-black mb-2">2,847+</div>
                 <p className="text-sm text-muted-foreground">Matches Analyzed</p>
               </div>
-              <div className="text-center p-4 bg-primary/50 rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black text-accent mb-2">24</div>
+              <div className="text-center p-4 bg-muted rounded-lg">
+                <div className="text-3xl sm:text-4xl font-black mb-2">24</div>
                 <p className="text-sm text-muted-foreground">Teams Tracked</p>
               </div>
-              <div className="text-center p-4 bg-primary/50 rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black text-accent mb-2">68.5%</div>
+              <div className="text-center p-4 bg-muted rounded-lg">
+                <div className="text-3xl sm:text-4xl font-black mb-2">68.5%</div>
                 <p className="text-sm text-muted-foreground">Accuracy Rate</p>
               </div>
-              <div className="text-center p-4 bg-primary/50 rounded-lg">
-                <div className="text-3xl sm:text-4xl font-black text-accent mb-2">100%</div>
+              <div className="text-center p-4 bg-muted rounded-lg">
+                <div className="text-3xl sm:text-4xl font-black mb-2">100%</div>
                 <p className="text-sm text-muted-foreground">Verified Data</p>
               </div>
             </div>
