@@ -47,7 +47,7 @@ const defaultStats: PlayerStats = {
 const PlayerCard3D = ({
   name = "Virat Kohli",
   role = "Batsman",
-  image = "https://cdn.shadcnstudio.com/ss-assets/components/card/image-10.png?width=350&format=auto",
+  image = "/virat.jpg",
   stats = defaultStats,
 }: PlayerCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -136,20 +136,20 @@ const PlayerCard3D = ({
   }, [])
 
   const battingStats = [
-    { label: "Matches",    value: stats.matches },
+    { label: "Matches", value: stats.matches },
     { label: "Total Runs", value: stats.totalRuns.toLocaleString() },
-    { label: "Highest",    value: stats.highestScore },
-    { label: "Average",    value: stats.battingAverage },
-    { label: "4s",         value: stats.fours },
-    { label: "6s",         value: stats.sixes },
-    { label: "50s",        value: stats.fifties },
-    { label: "100s",       value: stats.hundreds },
+    { label: "Highest", value: stats.highestScore },
+    { label: "Average", value: stats.battingAverage },
+    { label: "4s", value: stats.fours },
+    { label: "6s", value: stats.sixes },
+    { label: "50s", value: stats.fifties },
+    { label: "100s", value: stats.hundreds },
   ]
 
   const bowlingStats = [
-    { label: "Wickets",      value: stats.wickets },
-    { label: "Economy",      value: stats.economy },
-    { label: "Strike Rate",  value: stats.strikeRate },
+    { label: "Wickets", value: stats.wickets },
+    { label: "Economy", value: stats.economy },
+    { label: "Strike Rate", value: stats.strikeRate },
   ]
 
   return (

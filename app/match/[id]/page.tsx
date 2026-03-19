@@ -1,4 +1,5 @@
 "use client"
+
 import { use } from "react"
 import Link from "next/link"
 import { ChevronLeft, MapPin, Calendar } from "lucide-react"

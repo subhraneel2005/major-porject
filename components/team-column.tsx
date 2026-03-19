@@ -9,7 +9,9 @@ import {
   Dialog,
   DialogContent,
   DialogClose,
+  DialogTitle,
 } from "@/components/ui/dialog"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { cn } from "@/lib/utils"
 
 interface TeamProps {
@@ -133,10 +135,13 @@ export default function TeamColumn({ team, side = "left" }: TeamProps) {
 
       {/* Player Detail Dialog */}
       <Dialog open={!!selectedPlayer} onOpenChange={(open) => !open && setSelectedPlayer(null)}>
-        <DialogContent
-          className="sm:max-w-md bg-card border-border p-0 overflow-hidden z-50 [&>button]:hidden"
-          // heavier overlay via overlayClassName workaround below
-        >
+        <DialogContent className="sm:max-w-md bg-card border-border p-0 overflow-hidden z-50 [&>button]:hidden">
+
+          {/* ✅ Fixes the accessibility console error — visually hidden but read by screen readers */}
+          <VisuallyHidden>
+            <DialogTitle>{selectedPlayer?.name ?? "Player Details"}</DialogTitle>
+          </VisuallyHidden>
+
           {selectedPlayer && (
             <>
               {/* Player Image */}
@@ -204,7 +209,7 @@ export default function TeamColumn({ team, side = "left" }: TeamProps) {
         </DialogContent>
       </Dialog>
 
-      {/* Heavier backdrop when dialog is open */}
+      {/* Heavier backdrop */}
       <style jsx global>{`
         [data-radix-dialog-overlay] {
           background-color: rgba(0, 0, 0, 0.85) !important;
