@@ -1,223 +1,289 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { useEffect, useRef, useState } from 'react'
 
-interface CardTransform {
-  rotateX: number
-  rotateY: number
-  scale: number
+// ── Team colour map ──────────────────────────────────────────────────────────
+const TEAM_COLORS: Record<string, { primary: string; accent: string }> = {
+  CSK:  { primary: '#1a1200', accent: '#f5c500' },
+  MI:   { primary: '#001d4a', accent: '#009bde' },
+  RCB:  { primary: '#1a0000', accent: '#ec1c24' },
+  KKR:  { primary: '#160040', accent: '#a855f7' },
+  DC:   { primary: '#001540', accent: '#0078bc' },
+  PBKS: { primary: '#2a0000', accent: '#e63946' },
+  RR:   { primary: '#1a0030', accent: '#e91e8c' },
+  SRH:  { primary: '#1a0a00', accent: '#f26522' },
+  GT:   { primary: '#001a10', accent: '#1c8b5e' },
+  LSG:  { primary: '#001220', accent: '#00b4d8' },
 }
 
+const ROLE_ICONS: Record<string, string> = {
+  Batsman:       '🏏',
+  Bowler:        '⚾',
+  'All-Rounder': '⚡',
+  Wicketkeeper:  '🧤',
+}
+
+// ── Types ────────────────────────────────────────────────────────────────────
 interface PlayerStats {
   matches: number
   totalRuns: number
   highestScore: number
   battingAverage: number
-  fours: number
-  sixes: number
-  fifties: number
-  hundreds: number
   wickets: number
-  economy: number
+  economy: number | null
   strikeRate: number
 }
 
-interface PlayerCardProps {
+export interface Player {
+  id: string
+  name: string
+  team: string
+  teamShort: string
+  role: string
+  image: string
+  stats: PlayerStats
+}
+
+// ── Helper: flatten grouped players.json ─────────────────────────────────────
+async function fetchPlayerByName(name: string): Promise<Player | null> {
+  const res = await fetch('/players.json')
+  const data = await res.json()
+
+  const all: Player[] = Object.entries(data).flatMap(
+    ([teamName, teamData]: [string, any]) =>
+      teamData.players.map((p: any) => ({
+        ...p,
+        team: teamName,
+        teamShort: teamData.team_short,
+      }))
+  )
+
+  return all.find((p) => p.name === name) ?? null
+}
+
+// ── Props: accept either a full player object OR just a name string ──────────
+interface PlayerCard3DProps {
+  player?: Player
   name?: string
-  role?: string
-  image?: string
-  stats?: PlayerStats
 }
 
-const defaultStats: PlayerStats = {
-  matches: 124,
-  totalRuns: 5320,
-  highestScore: 183,
-  battingAverage: 48.3,
-  fours: 412,
-  sixes: 198,
-  fifties: 32,
-  hundreds: 14,
-  wickets: 18,
-  economy: 7.4,
-  strikeRate: 138.5,
-}
+// ── Component ────────────────────────────────────────────────────────────────
+const PlayerCard3D = ({ player: playerProp, name }: PlayerCard3DProps) => {
+  const [player, setPlayer] = useState<Player | null>(playerProp ?? null)
+  const [loading, setLoading] = useState(!playerProp)
 
-const PlayerCard3D = ({
-  name = "Virat Kohli",
-  role = "Batsman",
-  image = "/virat.jpg",
-  stats = defaultStats,
-}: PlayerCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const imageRef = useRef<HTMLImageElement>(null)
-  const animationFrameRef = useRef<number | undefined>(undefined)
-  const lastMousePosition = useRef({ x: 0, y: 0 })
+  const cardRef    = useRef<HTMLDivElement>(null)
+  const imageRef   = useRef<HTMLImageElement>(null)
+  const rafRef     = useRef<number | undefined>(undefined)
+  const mouse      = useRef({ x: 0, y: 0 })
+  const isHovered  = useRef(false)
 
+  // If only a name was passed, fetch the player data
+  useEffect(() => {
+    if (playerProp) {
+      setPlayer(playerProp)
+      setLoading(false)
+      return
+    }
+    if (!name) return
+
+    fetchPlayerByName(name).then((found) => {
+      setPlayer(found)
+      setLoading(false)
+    })
+  }, [name, playerProp])
+
+  const colors = TEAM_COLORS[player?.teamShort ?? ''] ?? TEAM_COLORS['MI']
+
+  // ── 3D mouse effect ────────────────────────────────────────────────────────
   useEffect(() => {
     const card = cardRef.current
-    const image = imageRef.current
-
-    if (!card || !image) return
-
-    let rect: DOMRect
-    let centerX: number
-    let centerY: number
-
-    const updateCardTransform = (mouseX: number, mouseY: number) => {
-      if (!rect) {
-        rect = card.getBoundingClientRect()
-        centerX = rect.left + rect.width / 2
-        centerY = rect.top + rect.height / 2
-      }
-
-      const relativeX = mouseX - centerX
-      const relativeY = mouseY - centerY
-
-      const cardTransform: CardTransform = {
-        rotateX: -relativeY * 0.035,
-        rotateY: relativeX * 0.035,
-        scale: 1.025,
-      }
-
-      const imageTransform: CardTransform = {
-        rotateX: -relativeY * 0.025,
-        rotateY: relativeX * 0.025,
-        scale: 1.05,
-      }
-
-      return { cardTransform, imageTransform }
-    }
+    const img  = imageRef.current
+    if (!card || !img || !player) return
 
     const animate = () => {
-      const { cardTransform, imageTransform } = updateCardTransform(
-        lastMousePosition.current.x,
-        lastMousePosition.current.y
-      )
+      if (!isHovered.current) return
+      const rect = card.getBoundingClientRect()
+      const cx   = rect.left + rect.width  / 2
+      const cy   = rect.top  + rect.height / 2
+      const rx   = (mouse.current.x - cx) * 0.03
+      const ry   = (mouse.current.y - cy) * 0.03
 
-      card.style.transform = `perspective(1000px) rotateX(${cardTransform.rotateX}deg) rotateY(${cardTransform.rotateY}deg) scale3d(${cardTransform.scale}, ${cardTransform.scale}, ${cardTransform.scale})`
-      card.style.boxShadow = '0 10px 35px rgba(0, 0, 0, 0.3)'
-
-      image.style.transform = `perspective(1000px) rotateX(${imageTransform.rotateX}deg) rotateY(${imageTransform.rotateY}deg) scale3d(${imageTransform.scale}, ${imageTransform.scale}, ${imageTransform.scale})`
-
-      animationFrameRef.current = requestAnimationFrame(animate)
+      card.style.transform = `perspective(1000px) rotateY(${rx}deg) rotateX(${-ry}deg) scale3d(1.03,1.03,1.03)`
+      img.style.transform  = `perspective(1000px) rotateY(${rx * 0.6}deg) rotateX(${-ry * 0.6}deg) scale3d(1.06,1.06,1.06)`
+      rafRef.current = requestAnimationFrame(animate)
     }
 
-    const handleMouseMove = (e: MouseEvent) => {
-      lastMousePosition.current = { x: e.clientX, y: e.clientY }
-    }
-
-    const handleMouseEnter = () => {
-      card.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease'
-      image.style.transition = 'transform 0.2s ease'
+    const onMove  = (e: MouseEvent) => { mouse.current = { x: e.clientX, y: e.clientY } }
+    const onEnter = () => {
+      isHovered.current = true
+      card.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease'
+      img.style.transition  = 'transform 0.15s ease'
+      card.style.boxShadow  = `0 20px 60px ${colors.accent}55, 0 0 0 1px ${colors.accent}33`
       animate()
     }
-
-    const handleMouseLeave = () => {
-      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)'
-      card.style.boxShadow = 'none'
+    const onLeave = () => {
+      isHovered.current = false
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      card.style.transform  = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)'
+      card.style.boxShadow  = '0 4px 20px rgba(0,0,0,0.4)'
       card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease'
-      image.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)'
-      image.style.transition = 'transform 0.5s ease'
+      img.style.transform   = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)'
+      img.style.transition  = 'transform 0.5s ease'
     }
 
-    card.addEventListener('mouseenter', handleMouseEnter)
-    card.addEventListener('mousemove', handleMouseMove)
-    card.addEventListener('mouseleave', handleMouseLeave)
-
+    card.addEventListener('mouseenter', onEnter)
+    card.addEventListener('mousemove',  onMove)
+    card.addEventListener('mouseleave', onLeave)
     return () => {
-      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
-      card.removeEventListener('mouseenter', handleMouseEnter)
-      card.removeEventListener('mousemove', handleMouseMove)
-      card.removeEventListener('mouseleave', handleMouseLeave)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      card.removeEventListener('mouseenter', onEnter)
+      card.removeEventListener('mousemove',  onMove)
+      card.removeEventListener('mouseleave', onLeave)
     }
-  }, [])
+  }, [colors.accent, player])
+
+  // ── Loading / not found states ─────────────────────────────────────────────
+  if (loading) {
+    return (
+      <div
+        className="w-72 rounded-2xl overflow-hidden animate-pulse"
+        style={{ background: '#111', height: '420px', border: '1px solid #222' }}
+      />
+    )
+  }
+
+  if (!player) {
+    return (
+      <div
+        className="w-72 rounded-2xl flex items-center justify-center text-sm"
+        style={{ background: '#111', height: '420px', color: '#555', border: '1px solid #222' }}
+      >
+        Player not found
+      </div>
+    )
+  }
+
+  const { stats } = player
 
   const battingStats = [
-    { label: "Matches", value: stats.matches },
-    { label: "Total Runs", value: stats.totalRuns.toLocaleString() },
-    { label: "Highest", value: stats.highestScore },
-    { label: "Average", value: stats.battingAverage },
-    { label: "4s", value: stats.fours },
-    { label: "6s", value: stats.sixes },
-    { label: "50s", value: stats.fifties },
-    { label: "100s", value: stats.hundreds },
+    { label: 'Matches', value: stats.matches },
+    { label: 'Runs',    value: stats.totalRuns.toLocaleString() },
+    { label: 'Highest', value: stats.highestScore },
+    { label: 'Avg',     value: stats.battingAverage },
   ]
 
   const bowlingStats = [
-    { label: "Wickets", value: stats.wickets },
-    { label: "Economy", value: stats.economy },
-    { label: "Strike Rate", value: stats.strikeRate },
+    { label: 'Wickets',  value: stats.wickets },
+    { label: 'SR (bat)', value: stats.strikeRate },
+    { label: 'Economy',  value: stats.economy ?? '—' },
   ]
 
+  // ── Render ─────────────────────────────────────────────────────────────────
   return (
-    <Card ref={cardRef} className="w-full max-w-sm bg-card border-border overflow-hidden">
-
-      {/* Player Image */}
-      <div className="relative w-full h-56 overflow-hidden">
+    <div
+      ref={cardRef}
+      className="w-72 rounded-2xl overflow-hidden cursor-pointer select-none"
+      style={{
+        background:  `linear-gradient(145deg, ${colors.primary} 0%, #0a0a0a 100%)`,
+        border:      `1px solid ${colors.accent}30`,
+        boxShadow:   '0 4px 20px rgba(0,0,0,0.4)',
+        willChange:  'transform',
+      }}
+    >
+      {/* ── Image ── */}
+      <div className="relative w-full h-60 overflow-hidden">
         <img
           ref={imageRef}
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover"
+          src={player.image}
+          alt={player.name}
+          className="w-full h-full object-cover object-top"
+          style={{ willChange: 'transform' }}
+          onError={(e) => {
+            ;(e.target as HTMLImageElement).src =
+              `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&size=280&background=1a1a1a&color=${colors.accent.replace('#', '')}&bold=true&font-size=0.35`
+          }}
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
 
-        {/* Name + Role over image */}
-        <div className="absolute bottom-4 left-4">
-          <h2 className="text-2xl font-bold text-foreground">{name}</h2>
-          <span className="inline-block mt-1 text-xs px-3 py-1 rounded-full bg-accent/80 text-accent-foreground font-semibold">
-            {role}
+        {/* gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to top, ${colors.primary} 0%, ${colors.primary}99 25%, transparent 60%)`,
+          }}
+        />
+
+        {/* team badge */}
+        <div
+          className="absolute top-3 right-3 text-[10px] font-black px-2 py-0.5 rounded-full tracking-widest"
+          style={{ background: colors.accent, color: '#000' }}
+        >
+          {player.teamShort}
+        </div>
+
+        {/* name + role */}
+        <div className="absolute bottom-3 left-4">
+          <h2 className="text-xl font-bold leading-tight" style={{ color: '#fff' }}>
+            {player.name}
+          </h2>
+          <span
+            className="inline-flex items-center gap-1 mt-1 text-[10px] font-semibold px-2 py-0.5 rounded-full"
+            style={{
+              background: `${colors.accent}22`,
+              color:       colors.accent,
+              border:      `1px solid ${colors.accent}44`,
+            }}
+          >
+            {ROLE_ICONS[player.role] ?? '🏏'} {player.role}
           </span>
         </div>
       </div>
 
-      <CardContent className="pt-5 pb-6 space-y-5">
+      {/* ── Stats ── */}
+      <div className="px-4 pt-4 pb-5 space-y-4">
 
-        {/* Batting Stats */}
+        {/* Batting */}
         <div>
-          <p className="text-xs font-semibold text-accent uppercase tracking-widest mb-3">
+          <p className="text-[9px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: colors.accent }}>
             Batting
           </p>
-          <div className="grid grid-cols-4 gap-3">
-            {battingStats.map((stat) => (
+          <div className="grid grid-cols-4 gap-2">
+            {battingStats.map((s) => (
               <div
-                key={stat.label}
-                className="bg-primary/50 border border-border rounded-xl p-2 text-center hover:border-accent/50 transition-colors duration-200"
+                key={s.label}
+                className="rounded-xl py-2 text-center"
+                style={{ background: `${colors.accent}12`, border: `1px solid ${colors.accent}25` }}
               >
-                <div className="text-base font-bold text-accent">{stat.value}</div>
-                <div className="text-[10px] text-muted-foreground mt-0.5">{stat.label}</div>
+                <div className="text-sm font-bold" style={{ color: colors.accent }}>{s.value}</div>
+                <div className="text-[9px] mt-0.5" style={{ color: '#888' }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-border" />
+        <div style={{ borderTop: `1px solid ${colors.accent}18` }} />
 
-        {/* Bowling Stats */}
+        {/* Bowling */}
         <div>
-          <p className="text-xs font-semibold text-accent uppercase tracking-widest mb-3">
-            Bowling
+          <p className="text-[9px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: colors.accent }}>
+            Bowling / Rate
           </p>
-          <div className="grid grid-cols-3 gap-3">
-            {bowlingStats.map((stat) => (
+          <div className="grid grid-cols-3 gap-2">
+            {bowlingStats.map((s) => (
               <div
-                key={stat.label}
-                className="bg-primary/50 border border-border rounded-xl p-2 text-center hover:border-accent/50 transition-colors duration-200"
+                key={s.label}
+                className="rounded-xl py-2 text-center"
+                style={{ background: `${colors.accent}12`, border: `1px solid ${colors.accent}25` }}
               >
-                <div className="text-base font-bold text-accent">{stat.value}</div>
-                <div className="text-[10px] text-muted-foreground mt-0.5">{stat.label}</div>
+                <div className="text-sm font-bold" style={{ color: colors.accent }}>{s.value}</div>
+                <div className="text-[9px] mt-0.5" style={{ color: '#888' }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
 

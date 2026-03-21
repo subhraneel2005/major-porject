@@ -1,0 +1,180 @@
+{
+  "Chennai Super Kings": {
+    "team_short": "CSK",
+    "captain": "MS Dhoni",
+    "players": [
+      { "id": "p001", "name": "MS Dhoni",            "role": "Wicketkeeper",  "image": "/cricket/MS Dhoni.jpg",            "stats": { "matches": 264, "totalRuns": 5243, "highestScore": 84,  "battingAverage": 39.13, "wickets": 0,   "economy": null, "strikeRate": 137.54 } },
+      { "id": "p002", "name": "Ruturaj Gaikwad",     "role": "Batsman",       "image": "/cricket/Ruturaj Gaikwad.jpg",     "stats": { "matches": 66,  "totalRuns": 2380, "highestScore": 101, "battingAverage": 41.05, "wickets": 0,   "economy": null, "strikeRate": 135.52 } },
+      { "id": "p003", "name": "Ravindra Jadeja",     "role": "All-Rounder",   "image": "/cricket/Ravindra Jadeja.jpg",     "stats": { "matches": 240, "totalRuns": 2959, "highestScore": 62,  "battingAverage": 26.42, "wickets": 160, "economy": null, "strikeRate": 129.62 } },
+      { "id": "p004", "name": "Ravichandran Ashwin", "role": "Bowler",        "image": "/cricket/RAVICHANDRANASHWIN.jpg",  "stats": { "matches": 197, "totalRuns": 739,  "highestScore": 50,  "battingAverage": 15.39, "wickets": 171, "economy": null, "strikeRate": 118.05 } },
+      { "id": "p005", "name": "Shivam Dube",         "role": "All-Rounder",   "image": "/cricket/Shivam Dube.jpg",         "stats": { "matches": 65,  "totalRuns": 1348, "highestScore": 95,  "battingAverage": 28.68, "wickets": 4,   "economy": null, "strikeRate": 142.02 } },
+      { "id": "p006", "name": "Devon Conway",        "role": "Wicketkeeper",  "image": "/cricket/Devon Conway.jpg",        "stats": { "matches": 23,  "totalRuns": 924,  "highestScore": 92,  "battingAverage": 46.20, "wickets": 0,   "economy": null, "strikeRate": 141.77 } },
+      { "id": "p007", "name": "Deepak Chahar",       "role": "Bowler",        "image": "/cricket/DEEPAK CHAHAR.jpg",       "stats": { "matches": 73,  "totalRuns": 92,   "highestScore": 39,  "battingAverage": 11.50, "wickets": 72,  "economy": null, "strikeRate": 128.16 } },
+      { "id": "p008", "name": "Khaleel Ahmed",       "role": "Bowler",        "image": "/cricket/KHALEEL AHMED.jpg",       "stats": { "matches": 57,  "totalRuns": 19,   "highestScore": 7,   "battingAverage": 4.75,  "wickets": 74,  "economy": null, "strikeRate": 86.36  } },
+      { "id": "p009", "name": "Rachin Ravindra",     "role": "All-Rounder",   "image": "/cricket/Rachin Ravindra.jpg",     "stats": { "matches": 8,   "totalRuns": 191,  "highestScore": 65,  "battingAverage": 27.29, "wickets": 0,   "economy": null, "strikeRate": 185.14 } },
+      { "id": "p010", "name": "Noor Ahmad",          "role": "Bowler",        "image": "/cricket/NOOR AHMED.jpg",          "stats": { "matches": 23,  "totalRuns": 18,   "highestScore": 8,   "battingAverage": 6.00,  "wickets": 24,  "economy": null, "strikeRate": 81.81  } },
+      { "id": "p011", "name": "Anshul Kamboj",       "role": "Bowler",        "image": "/cricket/ANSHUL KAMBOJ.jpg",       "stats": { "matches": 10,  "totalRuns": 18,   "highestScore": 7,   "battingAverage": 6.00,  "wickets": 9,   "economy": null, "strikeRate": 112.50 } },
+      { "id": "p012", "name": "Jamie Overton",       "role": "All-Rounder",   "image": "/cricket/JAMIE OVERTON.png",       "stats": { "matches": 3,   "totalRuns": 15,   "highestScore": 11,  "battingAverage": 7.50,  "wickets": 4,   "economy": null, "strikeRate": 214.28 } },
+      { "id": "p013", "name": "Rahul Tripathi",      "role": "Batsman",       "image": "/cricket/RAHUL TRIPATHI.jpg",      "stats": { "matches": 95,  "totalRuns": 2236, "highestScore": 93,  "battingAverage": 26.62, "wickets": 0,   "economy": null, "strikeRate": 139.26 } },
+      { "id": "p014", "name": "Deepak Hooda",        "role": "All-Rounder",   "image": "/cricket/DEEPAK HOODA.jpg",        "stats": { "matches": 118, "totalRuns": 1460, "highestScore": 64,  "battingAverage": 18.97, "wickets": 10,  "economy": null, "strikeRate": 129.48 } },
+      { "id": "p015", "name": "Ayush Mhatre",        "role": "Batsman",       "image": "/cricket/Ayush Mhatre.jpg",        "stats": { "matches": 7,   "totalRuns": 240,  "highestScore": 94,  "battingAverage": 34.29, "wickets": 0,   "economy": null, "strikeRate": 145.73 } },
+      { "id": "p016", "name": "Dewald Brevis",       "role": "Batsman",       "image": "/cricket/Dewald Brevis.jpg",       "stats": { "matches": 10,  "totalRuns": 306,  "highestScore": 65,  "battingAverage": 30.60, "wickets": 0,   "economy": null, "strikeRate": 143.52 } }
+    ]
+  },
+
+  "Mumbai Indians": {
+    "team_short": "MI",
+    "captain": "Hardik Pandya",
+    "players": [
+      { "id": "p017", "name": "Rohit Sharma",      "role": "Batsman",      "image": "/cricket/Rohit Sharma.jpg",       "stats": { "matches": 257, "totalRuns": 6628, "highestScore": 109, "battingAverage": 29.58, "wickets": 15, "economy": null, "strikeRate": 131.14 } },
+      { "id": "p018", "name": "Hardik Pandya",     "role": "All-Rounder",  "image": "/cricket/Hardik Pandya.jpg",      "stats": { "matches": 123, "totalRuns": 2309, "highestScore": 91,  "battingAverage": 30.38, "wickets": 53, "economy": null, "strikeRate": 145.62 } },
+      { "id": "p019", "name": "Suryakumar Yadav",  "role": "Batsman",      "image": "/cricket/Surya Kumar Yadav.jpg",  "stats": { "matches": 150, "totalRuns": 3249, "highestScore": 103, "battingAverage": 32.82, "wickets": 0,  "economy": null, "strikeRate": 145.32 } },
+      { "id": "p020", "name": "N Tilak Varma",     "role": "Batsman",      "image": "/cricket/N Tilak Varma.jpg",      "stats": { "matches": 47,  "totalRuns": 1156, "highestScore": 84,  "battingAverage": 39.86, "wickets": 0,  "economy": null, "strikeRate": 146.00 } },
+      { "id": "p021", "name": "Jonny Bairstow",    "role": "Wicketkeeper", "image": "/cricket/JONNY BAIRSTOW.jpg",     "stats": { "matches": 50,  "totalRuns": 1589, "highestScore": 114, "battingAverage": 34.54, "wickets": 0,  "economy": null, "strikeRate": 144.45 } },
+      { "id": "p022", "name": "Karn Sharma",       "role": "Bowler",       "image": "/cricket/KARN SHARMA.jpg",        "stats": { "matches": 83,  "totalRuns": 307,  "highestScore": 39,  "battingAverage": 13.34, "wickets": 76, "economy": null, "strikeRate": 119.92 } },
+      { "id": "p023", "name": "Naman Dhir",        "role": "Batsman",      "image": "/cricket/Naman Dhir.jpg",         "stats": { "matches": 16,  "totalRuns": 252,  "highestScore": 46,  "battingAverage": 31.50, "wickets": 0,  "economy": null, "strikeRate": 150.60 } },
+      { "id": "p024", "name": "Mitchell Santner",  "role": "All-Rounder",  "image": "/cricket/MITCHELL SANTNER.jpg",   "stats": { "matches": 22,  "totalRuns": 126,  "highestScore": 22,  "battingAverage": 18.00, "wickets": 15, "economy": null, "strikeRate": 134.04 } },
+      { "id": "p025", "name": "Corbin Bosch",      "role": "All-Rounder",  "image": "/cricket/CORBIN BOSCH.jpg",       "stats": { "matches": 2,   "totalRuns": 47,   "highestScore": 27,  "battingAverage": 23.50, "wickets": 1,  "economy": null, "strikeRate": 146.87 } }
+    ]
+  },
+
+  "Royal Challengers Bengaluru": {
+    "team_short": "RCB",
+    "captain": "Rajat Patidar",
+    "players": [
+      { "id": "p026", "name": "Virat Kohli",       "role": "Batsman",      "image": "/cricket/Virat Kohli.jpg",        "stats": { "matches": 252, "totalRuns": 8004, "highestScore": 113, "battingAverage": 38.66, "wickets": 4,   "economy": null, "strikeRate": 131.97 } },
+      { "id": "p027", "name": "Rajat Patidar",     "role": "Batsman",      "image": "/cricket/Rajat Patidar.jpg",      "stats": { "matches": 27,  "totalRuns": 799,  "highestScore": 112, "battingAverage": 34.74, "wickets": 0,   "economy": null, "strikeRate": 158.53 } },
+      { "id": "p028", "name": "Bhuvneshwar Kumar", "role": "Bowler",       "image": "/cricket/BHUVNESHWAR KUMAR.jpg",  "stats": { "matches": 170, "totalRuns": 295,  "highestScore": 27,  "battingAverage": 8.68,  "wickets": 181, "economy": null, "strikeRate": 96.10  } },
+      { "id": "p029", "name": "Krunal Pandya",     "role": "All-Rounder",  "image": "/cricket/Krunal Pandya.jpg",      "stats": { "matches": 113, "totalRuns": 1590, "highestScore": 86,  "battingAverage": 22.71, "wickets": 76,  "economy": null, "strikeRate": 134.86 } },
+      { "id": "p030", "name": "Liam Livingstone",  "role": "All-Rounder",  "image": "/cricket/Liam Livingstone.jpg",   "stats": { "matches": 39,  "totalRuns": 939,  "highestScore": 94,  "battingAverage": 28.45, "wickets": 11,  "economy": null, "strikeRate": 162.60 } },
+      { "id": "p031", "name": "Phil Salt",         "role": "Wicketkeeper", "image": "/cricket/Phil Salt.jpg",          "stats": { "matches": 21,  "totalRuns": 653,  "highestScore": 89,  "battingAverage": 34.36, "wickets": 0,   "economy": null, "strikeRate": 175.64 } },
+      { "id": "p032", "name": "Jitesh Sharma",     "role": "Wicketkeeper", "image": "/cricket/Jitesh Sharma.jpg",      "stats": { "matches": 40,  "totalRuns": 730,  "highestScore": 85,  "battingAverage": 26.07, "wickets": 0,   "economy": null, "strikeRate": 158.36 } },
+      { "id": "p033", "name": "Devdutt Padikkal",  "role": "Batsman",      "image": "/cricket/Devdutt Padikkal.jpg",   "stats": { "matches": 64,  "totalRuns": 1521, "highestScore": 101, "battingAverage": 25.35, "wickets": 0,   "economy": null, "strikeRate": 124.78 } },
+      { "id": "p034", "name": "Jacob Bethell",     "role": "All-Rounder",  "image": "/cricket/JACOB BETHELL.jpg",      "stats": { "matches": 2,   "totalRuns": 67,   "highestScore": 55,  "battingAverage": 33.50, "wickets": 0,   "economy": null, "strikeRate": 171.79 } },
+      { "id": "p035", "name": "Mayank Agarwal",    "role": "Batsman",      "image": "/cricket/Mayank Agarwal.jpg",     "stats": { "matches": 127, "totalRuns": 2661, "highestScore": 106, "battingAverage": 22.56, "wickets": 0,   "economy": null, "strikeRate": 133.05 } }
+    ]
+  },
+
+  "Kolkata Knight Riders": {
+    "team_short": "KKR",
+    "captain": "Ajinkya Rahane",
+    "players": [
+      { "id": "p036", "name": "Ajinkya Rahane",       "role": "Batsman",      "image": "/cricket/Ajinkya Rahane.jpg",        "stats": { "matches": 185, "totalRuns": 4642, "highestScore": 105, "battingAverage": 30.14, "wickets": 1,  "economy": null, "strikeRate": 123.42 } },
+      { "id": "p037", "name": "Quinton De Kock",      "role": "Wicketkeeper", "image": "/cricket/Quinton De Kock.jpg",        "stats": { "matches": 107, "totalRuns": 3157, "highestScore": 140, "battingAverage": 31.89, "wickets": 0,  "economy": null, "strikeRate": 134.64 } },
+      { "id": "p038", "name": "Manish Pandey",        "role": "Batsman",      "image": "/cricket/Manish Pandey.jpg",          "stats": { "matches": 171, "totalRuns": 3850, "highestScore": 114, "battingAverage": 29.84, "wickets": 0,  "economy": null, "strikeRate": 121.16 } },
+      { "id": "p039", "name": "Moeen Ali",            "role": "All-Rounder",  "image": "/cricket/MOEEN ALI.jpg",              "stats": { "matches": 67,  "totalRuns": 1162, "highestScore": 93,  "battingAverage": 23.71, "wickets": 35, "economy": null, "strikeRate": 141.53 } },
+      { "id": "p040", "name": "Rinku Singh",          "role": "Batsman",      "image": "/cricket/Rinku Singh.jpeg",           "stats": { "matches": 45,  "totalRuns": 893,  "highestScore": 67,  "battingAverage": 36.39, "wickets": 0,  "economy": null, "strikeRate": 142.16 } },
+      { "id": "p041", "name": "Harshit Rana",         "role": "Bowler",       "image": "/cricket/HARSHIT RANA.jpg",           "stats": { "matches": 21,  "totalRuns": 62,   "highestScore": 34,  "battingAverage": 15.50, "wickets": 25, "economy": null, "strikeRate": 110.71 } },
+      { "id": "p042", "name": "Angkrish Raghuvanshi", "role": "Batsman",      "image": "/cricket/Angkrish Raghuvanshi.jpg",   "stats": { "matches": 12,  "totalRuns": 300,  "highestScore": 50,  "battingAverage": 33.33, "wickets": 0,  "economy": null, "strikeRate": 157.29 } },
+      { "id": "p043", "name": "Rahmanullah Gurbaz",   "role": "Wicketkeeper", "image": "/cricket/RAHMANULLAH GURBAZ.jpg",     "stats": { "matches": 11,  "totalRuns": 227,  "highestScore": 81,  "battingAverage": 22.70, "wickets": 0,  "economy": null, "strikeRate": 149.34 } }
+    ]
+  },
+
+  "Delhi Capitals": {
+    "team_short": "DC",
+    "captain": "Axar Patel",
+    "players": [
+      { "id": "p044", "name": "Axar Patel",           "role": "All-Rounder",  "image": "/cricket/Axar Patel.jpg",             "stats": { "matches": 150, "totalRuns": 1653, "highestScore": 66,  "battingAverage": 21.20, "wickets": 123, "economy": null, "strikeRate": 130.25 } },
+      { "id": "p045", "name": "KL Rahul",             "role": "Wicketkeeper", "image": "/cricket/K L Rahul.jpg",              "stats": { "matches": 132, "totalRuns": 4683, "highestScore": 132, "battingAverage": 45.47, "wickets": 0,   "economy": null, "strikeRate": 134.60 } },
+      { "id": "p046", "name": "Faf Du Plessis",       "role": "Batsman",      "image": "/cricket/Faf Du Plessis.jpg",          "stats": { "matches": 145, "totalRuns": 4571, "highestScore": 96,  "battingAverage": 35.43, "wickets": 0,   "economy": null, "strikeRate": 136.36 } },
+      { "id": "p047", "name": "Karun Nair",           "role": "Batsman",      "image": "/cricket/Karun Nair.jpg",             "stats": { "matches": 76,  "totalRuns": 1496, "highestScore": 83,  "battingAverage": 24.13, "wickets": 0,   "economy": null, "strikeRate": 128.28 } },
+      { "id": "p048", "name": "Mohit Sharma",         "role": "Bowler",       "image": "/cricket/MOHIT SHARMA.jpg",           "stats": { "matches": 105, "totalRuns": 123,  "highestScore": 21,  "battingAverage": 11.18, "wickets": 128, "economy": null, "strikeRate": 112.84 } },
+      { "id": "p049", "name": "Mitchell Starc",       "role": "Bowler",       "image": "/cricket/MITCHELL STARC.jpg",          "stats": { "matches": 41,  "totalRuns": 101,  "highestScore": 29,  "battingAverage": 12.62, "wickets": 51,  "economy": null, "strikeRate": 115.90 } },
+      { "id": "p050", "name": "Abhishek Porel",       "role": "Wicketkeeper", "image": "/cricket/Abishek Porel.jpg",           "stats": { "matches": 20,  "totalRuns": 366,  "highestScore": 65,  "battingAverage": 26.14, "wickets": 0,   "economy": null, "strikeRate": 138.12 } },
+      { "id": "p051", "name": "Ashutosh Sharma",      "role": "All-Rounder",  "image": "/cricket/Ashutosh Sharma.jpg",         "stats": { "matches": 19,  "totalRuns": 279,  "highestScore": 66,  "battingAverage": 27.90, "wickets": 0,   "economy": null, "strikeRate": 134.78 } },
+      { "id": "p052", "name": "Dushmantha Chameera",  "role": "Bowler",       "image": "/cricket/DUSHMANTHA CHAMEERA.jpg",     "stats": { "matches": 20,  "totalRuns": 12,   "highestScore": 10,  "battingAverage": 6.00,  "wickets": 15,  "economy": null, "strikeRate": 80.00  } },
+      { "id": "p053", "name": "Donovan Ferreira",     "role": "Batsman",      "image": "/cricket/DONOVAN FERREIRA.jpg",        "stats": { "matches": 6,   "totalRuns": 33,   "highestScore": 18,  "battingAverage": 8.25,  "wickets": 0,   "economy": null, "strikeRate": 132.00 } },
+      { "id": "p054", "name": "Jake Fraser-McGurk",   "role": "Batsman",      "image": "/cricket/JAKE FRASER-McGURK.png",      "stats": { "matches": 9,   "totalRuns": 330,  "highestScore": 84,  "battingAverage": 36.67, "wickets": 0,   "economy": null, "strikeRate": 234.04 } }
+    ]
+  },
+
+  "Punjab Kings": {
+    "team_short": "PBKS",
+    "captain": "Shreyas Iyer",
+    "players": [
+      { "id": "p055", "name": "Shreyas Iyer",      "role": "Batsman",      "image": "/cricket/Shreyas Iyer.jpg",        "stats": { "matches": 116, "totalRuns": 3127, "highestScore": 96,  "battingAverage": 32.58, "wickets": 0,  "economy": null, "strikeRate": 127.48 } },
+      { "id": "p056", "name": "Prabhsimran Singh", "role": "Wicketkeeper", "image": "/cricket/Prabhsimran Singh.jpg",   "stats": { "matches": 34,  "totalRuns": 756,  "highestScore": 103, "battingAverage": 23.63, "wickets": 0,  "economy": null, "strikeRate": 150.90 } },
+      { "id": "p057", "name": "Nehal Wadhera",     "role": "Batsman",      "image": "/cricket/Nehal Wadhera.jpg",       "stats": { "matches": 30,  "totalRuns": 706,  "highestScore": 64,  "battingAverage": 32.09, "wickets": 0,  "economy": null, "strikeRate": 141.76 } },
+      { "id": "p058", "name": "Glenn Maxwell",     "role": "All-Rounder",  "image": "/cricket/GLENN MAXWELL.jpg",       "stats": { "matches": 134, "totalRuns": 2771, "highestScore": 95,  "battingAverage": 24.52, "wickets": 37, "economy": null, "strikeRate": 156.73 } },
+      { "id": "p059", "name": "Marcus Stoinis",    "role": "All-Rounder",  "image": "/cricket/Marcus Stoinis.jpg",      "stats": { "matches": 96,  "totalRuns": 1866, "highestScore": 124, "battingAverage": 28.72, "wickets": 43, "economy": null, "strikeRate": 142.45 } },
+      { "id": "p060", "name": "Marco Jansen",      "role": "All-Rounder",  "image": "/cricket/MARCO JANSEN.jpg",        "stats": { "matches": 33,  "totalRuns": 159,  "highestScore": 38,  "battingAverage": 17.66, "wickets": 34, "economy": null, "strikeRate": 128.22 } },
+      { "id": "p061", "name": "Arshdeep Singh",    "role": "Bowler",       "image": "/cricket/ARSHDEEP SINGH.jpg",      "stats": { "matches": 65,  "totalRuns": 28,   "highestScore": 10,  "battingAverage": 7.00,  "wickets": 76, "economy": null, "strikeRate": 93.33  } },
+      { "id": "p062", "name": "Harpreet Brar",     "role": "Bowler",       "image": "/cricket/HARPREET BRAR.jpg",       "stats": { "matches": 37,  "totalRuns": 166,  "highestScore": 25,  "battingAverage": 16.60, "wickets": 33, "economy": null, "strikeRate": 122.96 } },
+      { "id": "p063", "name": "Azmatullah Omarzai","role": "All-Rounder",  "image": "/cricket/AZMATULLAH OMARZAI.jpg",  "stats": { "matches": 12,  "totalRuns": 98,   "highestScore": 35,  "battingAverage": 16.33, "wickets": 8,  "economy": null, "strikeRate": 137.06 } },
+      { "id": "p064", "name": "Josh Inglis",       "role": "Wicketkeeper", "image": "/cricket/Josh Inglis.jpg",         "stats": { "matches": 11,  "totalRuns": 278,  "highestScore": 73,  "battingAverage": 30.89, "wickets": 0,  "economy": null, "strikeRate": 133.16 } },
+      { "id": "p065", "name": "Lockie Ferguson",   "role": "Bowler",       "image": "/cricket/LOCKIE FERGUSON.jpg",     "stats": { "matches": 45,  "totalRuns": 67,   "highestScore": 24,  "battingAverage": 8.37,  "wickets": 46, "economy": null, "strikeRate": 118.00 } },
+      { "id": "p066", "name": "Priyansh Arya",     "role": "Batsman",      "image": "/cricket/Priyansh Arya.jpg",       "stats": { "matches": 17,  "totalRuns": 475,  "highestScore": 103, "battingAverage": 27.94, "wickets": 0,  "economy": null, "strikeRate": 179.24 } }
+    ]
+  },
+
+  "Rajasthan Royals": {
+    "team_short": "RR",
+    "captain": "Sanju Samson",
+    "players": [
+      { "id": "p067", "name": "Sanju Samson",       "role": "Wicketkeeper", "image": "/cricket/Sanju Samson.jpg",        "stats": { "matches": 167, "totalRuns": 4419, "highestScore": 119, "battingAverage": 30.68, "wickets": 0,  "economy": null, "strikeRate": 138.96 } },
+      { "id": "p068", "name": "Yashasvi Jaiswal",   "role": "Batsman",      "image": "/cricket/Yashasvi Jaiswal.jpg",    "stats": { "matches": 52,  "totalRuns": 1607, "highestScore": 124, "battingAverage": 32.14, "wickets": 0,  "economy": null, "strikeRate": 148.73 } },
+      { "id": "p069", "name": "Riyan Parag",        "role": "All-Rounder",  "image": "/cricket/Riyan Parag.jpg",         "stats": { "matches": 70,  "totalRuns": 1173, "highestScore": 84,  "battingAverage": 26.07, "wickets": 4,  "economy": null, "strikeRate": 135.20 } },
+      { "id": "p070", "name": "Dhruv Jurel",        "role": "Wicketkeeper", "image": "/cricket/Dhruv Jurel.jpg",         "stats": { "matches": 27,  "totalRuns": 447,  "highestScore": 70,  "battingAverage": 31.92, "wickets": 0,  "economy": null, "strikeRate": 151.02 } },
+      { "id": "p071", "name": "Fazalhaq Farooqi",   "role": "Bowler",       "image": "/cricket/FAZALHAQ FAROOQI.jpg",    "stats": { "matches": 7,   "totalRuns": 2,    "highestScore": 2,   "battingAverage": 2.00,  "wickets": 6,  "economy": null, "strikeRate": 66.66  } },
+      { "id": "p072", "name": "Maheesh Theekshana", "role": "Bowler",       "image": "/cricket/MAHEESH THEEKSHANA.jpg",  "stats": { "matches": 29,  "totalRuns": 16,   "highestScore": 7,   "battingAverage": 5.33,  "wickets": 34, "economy": null, "strikeRate": 66.66  } },
+      { "id": "p073", "name": "Jofra Archer",       "role": "Bowler",       "image": "/cricket/JOFRA ARCHER.png",        "stats": { "matches": 40,  "totalRuns": 195,  "highestScore": 30,  "battingAverage": 13.92, "wickets": 48, "economy": null, "strikeRate": 143.38 } }
+    ]
+  },
+
+  "Sunrisers Hyderabad": {
+    "team_short": "SRH",
+    "captain": "Pat Cummins",
+    "players": [
+      { "id": "p074", "name": "Pat Cummins",      "role": "All-Rounder",  "image": "/cricket/Pat Cummins.jpg",        "stats": { "matches": 58,  "totalRuns": 515,  "highestScore": 66,  "battingAverage": 17.75, "wickets": 63,  "economy": null, "strikeRate": 152.36 } },
+      { "id": "p075", "name": "Travis Head",      "role": "Batsman",      "image": "/cricket/Travis Head.jpg",        "stats": { "matches": 25,  "totalRuns": 772,  "highestScore": 102, "battingAverage": 34.17, "wickets": 2,   "economy": null, "strikeRate": 152.00 } },
+      { "id": "p076", "name": "Heinrich Klaasen", "role": "Wicketkeeper", "image": "/cricket/Heinrich Klaasen.jpg",   "stats": { "matches": 35,  "totalRuns": 993,  "highestScore": 104, "battingAverage": 38.19, "wickets": 0,   "economy": null, "strikeRate": 168.47 } },
+      { "id": "p077", "name": "Abhishek Sharma",  "role": "All-Rounder",  "image": "/cricket/Abhishek Sharma.jpg",    "stats": { "matches": 63,  "totalRuns": 1377, "highestScore": 141, "battingAverage": 25.03, "wickets": 9,   "economy": null, "strikeRate": 155.24 } },
+      { "id": "p078", "name": "Ishan Kishan",     "role": "Wicketkeeper", "image": "/cricket/Ishan Kishan.jpg",       "stats": { "matches": 105, "totalRuns": 2644, "highestScore": 99,  "battingAverage": 28.74, "wickets": 0,   "economy": null, "strikeRate": 135.96 } },
+      { "id": "p079", "name": "Nitish Rana",      "role": "Batsman",      "image": "/cricket/Nitish Rana.jpg",        "stats": { "matches": 107, "totalRuns": 2636, "highestScore": 87,  "battingAverage": 28.04, "wickets": 10,  "economy": null, "strikeRate": 134.22 } },
+      { "id": "p080", "name": "Harshal Patel",    "role": "Bowler",       "image": "/cricket/HARSHAL PATEL.jpg",      "stats": { "matches": 106, "totalRuns": 258,  "highestScore": 36,  "battingAverage": 11.72, "wickets": 135, "economy": null, "strikeRate": 138.70 } },
+      { "id": "p081", "name": "Mohammad Shami",   "role": "Bowler",       "image": "/cricket/MOHAMMED SHAMI.jpg",     "stats": { "matches": 110, "totalRuns": 73,   "highestScore": 21,  "battingAverage": 7.30,  "wickets": 127, "economy": null, "strikeRate": 96.05  } },
+      { "id": "p082", "name": "Abhinav Manohar",  "role": "Batsman",      "image": "/cricket/ABHINAV MANOHAR.jpg",    "stats": { "matches": 29,  "totalRuns": 231,  "highestScore": 43,  "battingAverage": 19.25, "wickets": 0,   "economy": null, "strikeRate": 135.88 } },
+      { "id": "p083", "name": "Aniket Verma",     "role": "Batsman",      "image": "/cricket/Aniket Verma.jpg",       "stats": { "matches": 14,  "totalRuns": 236,  "highestScore": 74,  "battingAverage": 26.22, "wickets": 0,   "economy": null, "strikeRate": 135.46 } },
+      { "id": "p084", "name": "Atharva Taide",    "role": "Batsman",      "image": "/cricket/ATHARVA TAIDE.jpg",      "stats": { "matches": 9,   "totalRuns": 146,  "highestScore": 66,  "battingAverage": 18.25, "wickets": 0,   "economy": null, "strikeRate": 144.55 } },
+      { "id": "p085", "name": "Kamindu Mendis",   "role": "All-Rounder",  "image": "/cricket/Kamindu Mendis.jpg",     "stats": { "matches": 5,   "totalRuns": 92,   "highestScore": 32,  "battingAverage": 30.67, "wickets": 2,   "economy": null, "strikeRate": 69.00  } }
+    ]
+  },
+
+  "Gujarat Titans": {
+    "team_short": "GT",
+    "captain": "Shubman Gill",
+    "players": [
+      { "id": "p086", "name": "Shubman Gill",    "role": "Batsman",      "image": "/cricket/Shubman Gill.jpg",       "stats": { "matches": 103, "totalRuns": 3216, "highestScore": 129, "battingAverage": 37.84, "wickets": 0,   "economy": null, "strikeRate": 135.70 } },
+      { "id": "p087", "name": "Rashid Khan",     "role": "Bowler",       "image": "/cricket/RASHID KHAN.jpg",        "stats": { "matches": 121, "totalRuns": 443,  "highestScore": 79,  "battingAverage": 14.76, "wickets": 149, "economy": null, "strikeRate": 159.93 } },
+      { "id": "p088", "name": "Sai Sudharsan",   "role": "Batsman",      "image": "/cricket/Sai Sudharsan.jpg",      "stats": { "matches": 25,  "totalRuns": 1034, "highestScore": 96,  "battingAverage": 47.00, "wickets": 0,   "economy": null, "strikeRate": 141.39 } },
+      { "id": "p089", "name": "Rahul Tewatia",   "role": "All-Rounder",  "image": "/cricket/Rahul Tewatia.jpg",      "stats": { "matches": 87,  "totalRuns": 930,  "highestScore": 53,  "battingAverage": 26.57, "wickets": 32,  "economy": null, "strikeRate": 134.55 } },
+      { "id": "p090", "name": "Mohammed Siraj",  "role": "Bowler",       "image": "/cricket/MOHAMMED SIRAJ.jpg",     "stats": { "matches": 93,  "totalRuns": 90,   "highestScore": 14,  "battingAverage": 9.00,  "wickets": 93,  "economy": null, "strikeRate": 110.00 } },
+      { "id": "p091", "name": "Kagiso Rabada",   "role": "Bowler",       "image": "/cricket/KAGISO RABADA.jpg",      "stats": { "matches": 80,  "totalRuns": 186,  "highestScore": 44,  "battingAverage": 12.40, "wickets": 106, "economy": null, "strikeRate": 125.67 } },
+      { "id": "p092", "name": "Jos Buttler",     "role": "Wicketkeeper", "image": "/cricket/Jos Buttler.jpg",        "stats": { "matches": 107, "totalRuns": 3582, "highestScore": 124, "battingAverage": 38.94, "wickets": 0,   "economy": null, "strikeRate": 147.52 } },
+      { "id": "p093", "name": "Gerald Coetzee",  "role": "Bowler",       "image": "/cricket/GERALD COETZEE.jpg",     "stats": { "matches": 10,  "totalRuns": 32,   "highestScore": 15,  "battingAverage": 10.66, "wickets": 13,  "economy": null, "strikeRate": 145.45 } },
+      { "id": "p094", "name": "Kumar Kartikeya", "role": "Bowler",       "image": "/cricket/KUMAR KARTIKEYA.jpg",    "stats": { "matches": 11,  "totalRuns": 10,   "highestScore": 6,   "battingAverage": 3.33,  "wickets": 10,  "economy": null, "strikeRate": 76.92  } },
+      { "id": "p095", "name": "Kwena Maphaka",   "role": "Bowler",       "image": "/cricket/KWENA MAPHAKA.jpg",      "stats": { "matches": 2,   "totalRuns": 8,    "highestScore": 8,   "battingAverage": 8.00,  "wickets": 1,   "economy": null, "strikeRate": 400.00 } },
+      { "id": "p096", "name": "Kusal Mendis",    "role": "Wicketkeeper", "image": "/cricket/KUSAL MENDIS.jpg",       "stats": { "matches": 1,   "totalRuns": 20,   "highestScore": 20,  "battingAverage": 20.00, "wickets": 0,   "economy": null, "strikeRate": 200.00 } }
+    ]
+  },
+
+  "Lucknow Super Giants": {
+    "team_short": "LSG",
+    "captain": "Rishabh Pant",
+    "players": [
+      { "id": "p097", "name": "Rishabh Pant",     "role": "Wicketkeeper", "image": "/cricket/Rishabh Pant.jpg",       "stats": { "matches": 111, "totalRuns": 3284, "highestScore": 128, "battingAverage": 34.93, "wickets": 0,  "economy": null, "strikeRate": 148.93 } },
+      { "id": "p098", "name": "Nicholas Pooran",  "role": "Wicketkeeper", "image": "/cricket/Nicholas Pooran.jpg",    "stats": { "matches": 76,  "totalRuns": 1769, "highestScore": 77,  "battingAverage": 32.76, "wickets": 0,  "economy": null, "strikeRate": 157.72 } },
+      { "id": "p099", "name": "David Miller",     "role": "Batsman",      "image": "/cricket/David Miller.jpg",       "stats": { "matches": 130, "totalRuns": 2924, "highestScore": 101, "battingAverage": 36.10, "wickets": 0,  "economy": null, "strikeRate": 139.24 } },
+      { "id": "p100", "name": "Aiden Markram",    "role": "All-Rounder",  "image": "/cricket/Aiden Markram.jpg",      "stats": { "matches": 44,  "totalRuns": 995,  "highestScore": 68,  "battingAverage": 31.09, "wickets": 2,  "economy": null, "strikeRate": 133.02 } },
+      { "id": "p101", "name": "Mitchell Marsh",   "role": "All-Rounder",  "image": "/cricket/Mitchell Marsh.jpg",     "stats": { "matches": 42,  "totalRuns": 932,  "highestScore": 89,  "battingAverage": 27.41, "wickets": 37, "economy": null, "strikeRate": 134.11 } },
+      { "id": "p102", "name": "Avesh Khan",       "role": "Bowler",       "image": "/cricket/AVESH KHAN.jpg",         "stats": { "matches": 63,  "totalRuns": 34,   "highestScore": 16,  "battingAverage": 6.80,  "wickets": 74, "economy": null, "strikeRate": 121.42 } },
+      { "id": "p103", "name": "Ravi Bishnoi",     "role": "Bowler",       "image": "/cricket/RAVI BISHNOI.jpg",       "stats": { "matches": 66,  "totalRuns": 32,   "highestScore": 16,  "battingAverage": 6.40,  "wickets": 74, "economy": null, "strikeRate": 84.21  } },
+      { "id": "p104", "name": "Ayush Badoni",     "role": "Batsman",      "image": "/cricket/Ayush Badoni.jpg",       "stats": { "matches": 42,  "totalRuns": 634,  "highestScore": 74,  "battingAverage": 26.41, "wickets": 0,  "economy": null, "strikeRate": 132.85 } },
+      { "id": "p105", "name": "Abdul Samad",      "role": "All-Rounder",  "image": "/cricket/Abdul Samad.jpg",        "stats": { "matches": 49,  "totalRuns": 577,  "highestScore": 45,  "battingAverage": 18.61, "wickets": 2,  "economy": null, "strikeRate": 167.34 } },
+      { "id": "p106", "name": "Akash Deep",       "role": "Bowler",       "image": "/cricket/AKASH DEEP.webp",        "stats": { "matches": 8,   "totalRuns": 7,    "highestScore": 6,   "battingAverage": 3.50,  "wickets": 7,  "economy": null, "strikeRate": 87.50  } },
+      { "id": "p107", "name": "Akash Madhwal",    "role": "Bowler",       "image": "/cricket/AKASH MADHWAL.jpeg",     "stats": { "matches": 13,  "totalRuns": 5,    "highestScore": 4,   "battingAverage": 2.50,  "wickets": 19, "economy": null, "strikeRate": 62.50  } },
+      { "id": "p108", "name": "Digvesh Singh",    "role": "Bowler",       "image": "/cricket/DIGVESH SINGH RATHI.webp","stats": { "matches": 13, "totalRuns": 1,    "highestScore": 1,   "battingAverage": 1.00,  "wickets": 11, "economy": null, "strikeRate": 33.33  } },
+      { "id": "p109", "name": "Matthew Breetzke", "role": "Batsman",      "image": "/cricket/MATTHEW BREETZKE.jpg",   "stats": { "matches": 1,   "totalRuns": 14,   "highestScore": 14,  "battingAverage": 14.00, "wickets": 0,  "economy": null, "strikeRate": 116.66 } }
+    ]
+  }
+}
