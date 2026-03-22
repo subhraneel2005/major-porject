@@ -34,48 +34,48 @@ interface Team {
 
 // ── Team accent colours ───────────────────────────────────────────────────────
 const TEAM_COLORS: Record<string, string> = {
-  CSK:  "#F9CD1B",
-  MI:   "#009bde",
-  RCB:  "#EC1C24",
-  KKR:  "#a855f7",
-  DC:   "#0078bc",
+  CSK: "#F9CD1B",
+  MI: "#009bde",
+  RCB: "#EC1C24",
+  KKR: "#a855f7",
+  DC: "#0078bc",
   PBKS: "#e63946",
-  RR:   "#e91e8c",
-  SRH:  "#f26522",
-  GT:   "#1c8b5e",
-  LSG:  "#00b4d8",
+  RR: "#e91e8c",
+  SRH: "#f26522",
+  GT: "#1c8b5e",
+  LSG: "#00b4d8",
 }
 
 // ── IPL titles per team ───────────────────────────────────────────────────────
 const TEAM_TITLES: Record<string, number> = {
   CSK: 5, MI: 5, KKR: 3, RR: 1, SRH: 1, GT: 1,
-  RCB: 0, DC: 0, PBKS: 0, LSG: 0,
+  RCB: 1, DC: 0, PBKS: 0, LSG: 0,
 }
 
 // ── Role badge colours ────────────────────────────────────────────────────────
 const ROLE_BADGE: Record<string, string> = {
-  Batsman:       "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  Wicketkeeper:  "bg-purple-500/20 text-purple-400 border-purple-500/30",
+  Batsman: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  Wicketkeeper: "bg-purple-500/20 text-purple-400 border-purple-500/30",
   "All-Rounder": "bg-green-500/20 text-green-400 border-green-500/30",
-  Bowler:        "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  Bowler: "bg-orange-500/20 text-orange-400 border-orange-500/30",
 }
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
 export default function TeamsPage() {
-  const [teams, setTeams]               = useState<Team[]>([])
+  const [teams, setTeams] = useState<Team[]>([])
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null)
-  const [loading, setLoading]           = useState(true)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch("/players.json")
       .then((r) => r.json())
       .then((data: Record<string, any>) => {
         const parsed: Team[] = Object.entries(data).map(([teamName, teamData]) => ({
-          name:       teamName,
+          name: teamName,
           team_short: teamData.team_short,
-          captain:    teamData.captain,
-          color:      TEAM_COLORS[teamData.team_short] ?? "#ffffff",
-          players:    teamData.players,
+          captain: teamData.captain,
+          color: TEAM_COLORS[teamData.team_short] ?? "#ffffff",
+          players: teamData.players,
         }))
         setTeams(parsed)
         setLoading(false)
@@ -122,8 +122,8 @@ export default function TeamsPage() {
                         className="w-14 h-14 rounded-xl flex items-center justify-center font-black text-lg"
                         style={{
                           backgroundColor: `${team.color}22`,
-                          color:            team.color,
-                          border:          `2px solid ${team.color}44`,
+                          color: team.color,
+                          border: `2px solid ${team.color}44`,
                         }}
                       >
                         {team.team_short}
@@ -203,15 +203,18 @@ export default function TeamsPage() {
                   className="w-16 h-16 rounded-2xl flex items-center justify-center font-black text-xl flex-shrink-0"
                   style={{
                     backgroundColor: `${selectedTeam.color}22`,
-                    color:            selectedTeam.color,
-                    border:          `2px solid ${selectedTeam.color}55`,
+                    color: selectedTeam.color,
+                    border: `2px solid ${selectedTeam.color}55`,
                   }}
                 >
                   {selectedTeam.team_short}
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-foreground leading-tight">{selectedTeam.name}</h2>
-                  <p className="text-sm text-muted-foreground mt-0.5">
+                  <h2 className="text-xl font-bold text-white leading-tight">
+                    {selectedTeam.name}
+                  </h2>
+
+                  <p className="text-sm text-white mt-0.5">
                     {(TEAM_TITLES[selectedTeam.team_short] ?? 0) > 0
                       ? `🏆 ${TEAM_TITLES[selectedTeam.team_short]}x Champion`
                       : "No titles yet"}
@@ -262,8 +265,8 @@ export default function TeamsPage() {
                         className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 transition-transform group-hover:scale-110 duration-200"
                         style={{
                           backgroundColor: `${selectedTeam.color}22`,
-                          color:            selectedTeam.color,
-                          border:          `1.5px solid ${selectedTeam.color}44`,
+                          color: selectedTeam.color,
+                          border: `1.5px solid ${selectedTeam.color}44`,
                         }}
                       >
                         {player.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()}

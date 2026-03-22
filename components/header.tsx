@@ -20,7 +20,7 @@ export default function Header() {
     { href: "/predictor", label: "Predictor" },
     { href: "/analytics", label: "Analytics" },
     { href: "/about", label: "About" },
-    {href: "/cards", label: "Cards"}
+    {href: "/cards", label: "Teams"}
   ]
 
   return (

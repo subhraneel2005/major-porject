@@ -32,7 +32,7 @@ export default function Home() {
             <div className="flex gap-10 border-l border-dashed border-border pl-10 hidden md:flex">
               <div>
                 <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest mb-1">Accuracy</p>
-                <p className="text-xl font-black tracking-tighter">94.2%</p>
+                <p className="text-xl font-black tracking-tighter">75%</p>
               </div>
               <div>
                 <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest mb-1">Latency</p>
