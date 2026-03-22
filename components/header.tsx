@@ -17,6 +17,7 @@ export default function Header() {
 
   const navItems = [
     { href: "/", label: "Matches" },
+    { href: "/chat", label: "Chat"},
     { href: "/predictor", label: "Predictor" },
     { href: "/analytics", label: "Analytics" },
     { href: "/about", label: "About" },
