@@ -13,244 +13,212 @@ import {
   PieChart,
   Pie,
   Cell,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
 } from "recharts"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChartContainer } from "@/components/ui/chart"
-import { TrendingUp, BarChart3, Target, Users } from "lucide-react"
+import { TrendingUp, BarChart3, Target, Users, Globe } from "lucide-react"
 
+// 1. Data from Top Player of the Match Awards (Top 5)
 const topPlayersData = [
-  { name: "Virat Kohli", avgScore: 85, runs: 1200 },
-  { name: "Rohit Sharma", avgScore: 78, runs: 980 },
-  { name: "Babar Azam", avgScore: 82, runs: 1050 },
-  { name: "Kane Williamson", avgScore: 80, runs: 920 },
-  { name: "Pat Cummins", avgScore: 45, runs: 200 },
+  { name: "AB de Villiers", awards: 22 },
+  { name: "CH Gayle", awards: 21 },
+  { name: "RG Sharma", awards: 19 },
+  { name: "DA Warner", awards: 18 },
+  { name: "MS Dhoni", awards: 17 },
 ]
 
-const headToHeadData = [
-  { series: "1", india: 65, pakistan: 35 },
-  { series: "2", india: 58, pakistan: 42 },
-  { series: "3", india: 72, pakistan: 28 },
-  { series: "4", india: 68, pakistan: 32 },
-  { series: "5", india: 75, pakistan: 25 },
-  { series: "6", india: 70, pakistan: 30 },
-  { series: "7", india: 80, pakistan: 20 },
+// 2. Data from Average Target Runs by Season (Recent Trend)
+const seasonTrendData = [
+  { season: "2019", avgTarget: 170 },
+  { season: "2020/21", avgTarget: 164 },
+  { season: "2021", avgTarget: 161 },
+  { season: "2022", avgTarget: 173 },
+  { season: "2023", avgTarget: 184 },
+  { season: "2024", avgTarget: 191 },
 ]
 
-const winRateData = [
-  { name: "India", value: 65, fill: "#b8ff00" },
-  { name: "Pakistan", value: 35, fill: "#a855f7" },
+// 3. Data from Toss Decision Distribution
+const tossDecisionData = [
+  { name: "Field First", value: 64.5, fill: "#b8ff00" },
+  { name: "Bat First", value: 35.5, fill: "#a855f7" },
 ]
 
-const teamStrengthData = [
-  { metric: "Batting", india: 85, pakistan: 78 },
-  { metric: "Bowling", india: 80, pakistan: 82 },
-  { metric: "Fielding", india: 88, pakistan: 75 },
-  { metric: "Experience", india: 90, pakistan: 85 },
-  { metric: "Recent Form", india: 72, pakistan: 68 },
-  { metric: "Home Advantage", india: 80, pakistan: 75 },
+// 4. Data from Model Feature Importance
+const featureImportanceData = [
+  { feature: "Venue Strength", importance: 26 },
+  { feature: "Team 2 ID", importance: 19 },
+  { feature: "Venue ID", importance: 18 },
+  { feature: "Team 1 ID", importance: 16 },
+  { feature: "Current Form", importance: 8 },
 ]
 
 export default function AnalyticsPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-secondary rounded-lg">
-              <BarChart3 className="w-8 h-8" />
+            <div className="p-3 bg-secondary border border-dashed rounded-xl">
+              <BarChart3 className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-5xl font-bold">Analytics Dashboard</h1>
+            <h1 className="text-5xl font-black uppercase tracking-tighter">Neural Analytics</h1>
           </div>
-          <p className="text-lg text-muted-foreground">Real-time cricket statistics and predictive insights</p>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
+            Systematic breakdown of {1074} historical match vectors
+          </p>
         </div>
 
+        {/* Key Metrics Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card>
+          <Card className="border-dashed shadow-none">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-sm font-semibold">Prediction Accuracy</CardTitle>
-                <Target className="w-5 h-5 text-muted-foreground" />
+                <CardTitle className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Model Accuracy</CardTitle>
+                <Target className="w-4 h-4 text-primary" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black mb-2">68.5%</div>
-              <p className="text-xs text-muted-foreground">Based on last 30 matches</p>
+              <div className="text-4xl font-black mb-1">78.0%</div>
+              <p className="text-[10px] font-bold uppercase opacity-50">Validation Score</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-dashed shadow-none">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-sm font-semibold">Matches Analyzed</CardTitle>
-                <BarChart3 className="w-5 h-5 text-muted-foreground" />
+                <CardTitle className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Dataset Size</CardTitle>
+                <BarChart3 className="w-4 h-4 text-primary" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black mb-2">2,847</div>
-              <p className="text-xs text-muted-foreground">All time across formats</p>
+              <div className="text-4xl font-black mb-1">1,074</div>
+              <p className="text-[10px] font-bold uppercase opacity-50">Total Matches</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-dashed shadow-none">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-sm font-semibold">Teams Tracked</CardTitle>
-                <Users className="w-5 h-5 text-muted-foreground" />
+                <CardTitle className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Top Venue</CardTitle>
+                <Globe className="w-4 h-4 text-primary" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black mb-2">24</div>
-              <p className="text-xs text-muted-foreground">Active international teams</p>
+              <div className="text-4xl font-black mb-1">172</div>
+              <p className="text-[10px] font-bold uppercase opacity-50">Games in Mumbai</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-dashed shadow-none">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-sm font-semibold">Win Rate</CardTitle>
-                <TrendingUp className="w-5 h-5 text-muted-foreground" />
+                <CardTitle className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Toss Advantage</CardTitle>
+                <TrendingUp className="w-4 h-4 text-primary" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-black mb-2">72.3%</div>
-              <p className="text-xs text-muted-foreground">Average across teams</p>
+              <div className="text-4xl font-black mb-1">52.8%</div>
+              <p className="text-[10px] font-bold uppercase opacity-50">Win rate on toss win</p>
             </CardContent>
           </Card>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <Card>
+          {/* Toss Decision Pie Chart */}
+          <Card className="border-dashed shadow-none bg-muted/5">
             <CardHeader>
-              <CardTitle className="text-xl">Win Probability Distribution</CardTitle>
-              <CardDescription>Last 100 matches analysis</CardDescription>
+              <CardTitle className="text-xs font-black uppercase tracking-[0.2em]">Toss Decision Preference</CardTitle>
+              <CardDescription className="text-[10px] uppercase font-bold tracking-tight">Strategy distribution across all seasons</CardDescription>
             </CardHeader>
             <CardContent>
-              <ChartContainer
-                config={{
-                  india: { label: "Team A", color: "#ff6b6b" },
-                  pakistan: { label: "Team B", color: "#4ecdc4" },
-                }}
-                className="h-[300px]"
-              >
+              <div className="h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
-                      data={winRateData}
+                      data={tossDecisionData}
                       cx="50%"
                       cy="50%"
-                      labelLine={false}
+                      innerRadius={60}
                       outerRadius={100}
-                      fill="#8884d8"
+                      paddingAngle={5}
                       dataKey="value"
                     >
-                      {winRateData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.fill} />
+                      {tossDecisionData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.fill} stroke="transparent" />
                       ))}
                     </Pie>
-                    <Legend />
+                    <Legend iconType="circle" wrapperStyle={{ fontSize: '10px', textTransform: 'uppercase', fontWeight: 'bold' }} />
                   </PieChart>
                 </ResponsiveContainer>
-              </ChartContainer>
+              </div>
             </CardContent>
           </Card>
 
-          <Card>
+          {/* Feature Importance Bar Chart */}
+          <Card className="border-dashed shadow-none bg-muted/5">
             <CardHeader>
-              <CardTitle className="text-xl">Team Strengths Comparison</CardTitle>
-              <CardDescription>Radar analysis across metrics</CardDescription>
+              <CardTitle className="text-xs font-black uppercase tracking-[0.2em]">Neural Weight Factors</CardTitle>
+              <CardDescription className="text-[10px] uppercase font-bold tracking-tight">Impact ranking of prediction variables</CardDescription>
             </CardHeader>
             <CardContent>
-              <ChartContainer
-                config={{
-                  india: { label: "India", color: "#ff6b6b" },
-                  pakistan: { label: "Pakistan", color: "#4ecdc4" },
-                }}
-                className="h-[300px]"
-              >
+              <div className="h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <RadarChart data={teamStrengthData}>
-                    <PolarGrid stroke="#333" />
-                    <PolarAngleAxis dataKey="metric" />
-                    <PolarRadiusAxis />
-                    <Radar name="India" dataKey="india" stroke="#b8ff00" fill="#b8ff00" fillOpacity={0.3} />
-                    <Radar name="Pakistan" dataKey="pakistan" stroke="#a855f7" fill="#a855f7" fillOpacity={0.3} />
-                    <Legend />
-                  </RadarChart>
+                  <BarChart layout="vertical" data={featureImportanceData} margin={{ left: 40, right: 40 }}>
+                    <XAxis type="number" hide />
+                    <YAxis dataKey="feature" type="category" axisLine={false} tickLine={false} style={{ fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase' }} />
+                    <Bar dataKey="importance" fill="#b8ff00" radius={[0, 4, 4, 0]} />
+                  </BarChart>
                 </ResponsiveContainer>
-              </ChartContainer>
+              </div>
             </CardContent>
           </Card>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <Card>
+          {/* Top Players Performance */}
+          <Card className="border-dashed shadow-none bg-muted/5">
             <CardHeader>
-              <CardTitle className="text-xl">Top Players Performance</CardTitle>
-              <CardDescription>Average score comparison</CardDescription>
+              <CardTitle className="text-xs font-black uppercase tracking-[0.2em]">Historical MVP Leaders</CardTitle>
+              <CardDescription className="text-[10px] uppercase font-bold tracking-tight">Cumulative Player of the Match awards</CardDescription>
             </CardHeader>
             <CardContent>
-              <ChartContainer
-                config={{
-                  avgScore: { label: "Avg Score", color: "#b8ff00" },
-                  runs: { label: "Total Runs", color: "#a855f7" },
-                }}
-                className="h-[300px]"
-              >
+              <div className="h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={topPlayersData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                    <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
-                    <YAxis />
-                    <Bar dataKey="avgScore" fill="#b8ff00" name="Avg Score" />
+                  <BarChart data={topPlayersData} margin={{ bottom: 40 }}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#333" />
+                    <XAxis dataKey="name" angle={-45} textAnchor="end" style={{ fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase' }} />
+                    <YAxis style={{ fontSize: '10px' }} />
+                    <Bar dataKey="awards" fill="#a855f7" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
-              </ChartContainer>
+              </div>
             </CardContent>
           </Card>
 
-          <Card>
+          {/* Scoring Trends */}
+          <Card className="border-dashed shadow-none bg-muted/5">
             <CardHeader>
-              <CardTitle className="text-xl">Head-to-Head Historical Trend</CardTitle>
-              <CardDescription>Win rate over last 7 series</CardDescription>
+              <CardTitle className="text-xs font-black uppercase tracking-[0.2em]">Scoring Evolution</CardTitle>
+              <CardDescription className="text-[10px] uppercase font-bold tracking-tight">Average target runs by season (2019-2024)</CardDescription>
             </CardHeader>
             <CardContent>
-              <ChartContainer
-                config={{
-                  india: { label: "India", color: "#b8ff00" },
-                  pakistan: { label: "Pakistan", color: "#a855f7" },
-                }}
-                className="h-[300px]"
-              >
+              <div className="h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={headToHeadData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                    <XAxis dataKey="series" />
-                    <YAxis />
-                    <Legend />
+                  <LineChart data={seasonTrendData}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#333" />
+                    <XAxis dataKey="season" style={{ fontSize: '10px', fontWeight: 'bold' }} />
+                    <YAxis domain={[150, 200]} style={{ fontSize: '10px' }} />
                     <Line
                       type="monotone"
-                      dataKey="india"
+                      dataKey="avgTarget"
                       stroke="#b8ff00"
-                      strokeWidth={2}
-                      dot={{ fill: "#b8ff00" }}
-                      name="India"
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="pakistan"
-                      stroke="#a855f7"
-                      strokeWidth={2}
-                      dot={{ fill: "#a855f7" }}
-                      name="Pakistan"
+                      strokeWidth={3}
+                      dot={{ r: 4, fill: "#b8ff00" }}
+                      activeDot={{ r: 6 }}
                     />
                   </LineChart>
                 </ResponsiveContainer>
-              </ChartContainer>
+              </div>
             </CardContent>
           </Card>
         </div>

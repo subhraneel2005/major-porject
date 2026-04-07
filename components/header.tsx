@@ -20,8 +20,7 @@ export default function Header() {
     { href: "/chat", label: "Chat"},
     { href: "/predictor", label: "Predictor" },
     { href: "/analytics", label: "Analytics" },
-    { href: "/about", label: "About" },
-    {href: "/cards", label: "Teams"}
+    {href: "/cards", label: "Cards"}
   ]
 
   return (
